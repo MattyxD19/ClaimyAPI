@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+   
+
+</head>
+<body>
+
+    <div id="include"></div>
+
+
+    <div style="overflow-y:auto;" class="column">
+        <table class="InformationBoxes">
+            <tr>
+                <td>
+                    <label style="margin-right: 25px">Name</label>
+                    <input style="border-color:deepskyblue" id="NameTextBox" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label style="margin-right: 25px">City</label>
+                    <input style="border-color:deepskyblue" id="CityTextBox" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label style="margin-right: 25px">Ticket amount</label>
+                    <input style="border-color:deepskyblue" id="TicketAmountTextBox" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label style="margin-right: 25px">Parking Department</label>
+                    <input style="border-color:deepskyblue" id="ParkingDepartmentTextBox" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label style="margin-right: 25px">Ticket ID</label>
+                    <input style="border-color:deepskyblue" id="TicketIDTextBox" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label style="margin-right: 25px">Time of Day</label>
+                    <input style="border-color:deepskyblue" id="ToDTextBox" />
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="ImageBox">
+        <h2>Upload a picture of the fine</h2>
+        <form action="/action_page.php">
+            <input type="file" name="ticketPicture" accept="image/*">
+            <input type="submit">
+        </form>
+    </div>
+    <div class="ParkingImage">
+        <h2>Upload a picture of your parked car(optional)</h2>
+        <form action="/action_page.php">
+            <input type="file" name="parkingPicture" accept="image/*" />
+            <input type="submit" />
+        </form>
+    </div>
+
+    <!--Used for testing input-->
+
+    <input type="button" value="Click Me" id="myButton" />
+
+    <script>
+        document.getElementById("myButton").onclick = function () {
+            window.alert(document.getElementById('NameTextBox').value);
+            window.alert(document.getElementById('CityTextBox').value);
+            window.alert(document.getElementById('TicketAmountTextBox').value);
+        }
+    </script>
+   
+    <!--random comment-->
+</body>
+</html>
