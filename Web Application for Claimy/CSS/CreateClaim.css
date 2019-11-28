@@ -1,13 +1,11 @@
 ﻿body {
     background-image: url('../Resources/Claimy_Logo_OG.png');
     background-size: cover;
-    /* Do you like alabama hot pockets? */
 }
 
 .borderless td, .borderless th {
     border: none;
 }
-
 
 table, th {
     padding: 25px;
@@ -15,7 +13,7 @@ table, th {
 }
 
 td {
-    text-align: right;
+    text-align: left;
 }
 
 .column {

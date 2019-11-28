@@ -3,6 +3,10 @@
     background-size: cover;
 }
 
+.borderless td, .borderless th {
+	border: none;
+}
+
 .informationBar {
     background-color: lightskyblue;
     font-size: 25px;
