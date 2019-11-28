@@ -1,0 +1,20 @@
+﻿body {
+    background-image: url('../Resources/Claimy_Logo_OG.png');
+    background-size: cover;
+}
+
+.informationBar {
+    background-color: lightskyblue;
+    font-size: 25px;
+}
+
+.barItemButton {
+    background-color: lightskyblue;
+    color: white;
+}
+
+    .barItemButton:hover {
+        text-decoration: none;
+        background-color: lightskyblue;
+        color: grey;
+    }

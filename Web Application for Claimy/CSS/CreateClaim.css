@@ -1,0 +1,30 @@
+﻿body {
+    background-image: url('../Resources/Claimy_Logo_OG.png');
+    background-size: cover;
+    /* Do you like alabama hot pockets? */
+}
+
+.borderless td, .borderless th {
+    border: none;
+}
+
+
+table, th {
+    padding: 25px;
+    text-align: left;
+}
+
+td {
+    text-align: right;
+}
+
+.column {
+    float: left;
+    width: 33.33%;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
