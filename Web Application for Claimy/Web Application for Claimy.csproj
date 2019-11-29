@@ -80,9 +80,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CSS\bootstrap-grid.css" />
+    <Content Include="CSS\bootstrap-grid.min.css" />
+    <Content Include="CSS\bootstrap-reboot.css" />
+    <Content Include="CSS\bootstrap-reboot.min.css" />
+    <Content Include="CSS\bootstrap.css" />
+    <Content Include="CSS\bootstrap.min.css" />
     <Content Include="CSS\CreateAccount.css" />
     <Content Include="Global.asax" />
+    <Content Include="javascript\bootstrap.bundle.js" />
+    <Content Include="javascript\bootstrap.bundle.min.js" />
+    <Content Include="javascript\bootstrap.js" />
+    <Content Include="javascript\bootstrap.min.js" />
     <Content Include="Resources\Claimy_Logo_OG.png" />
+    <Content Include="Views\AboutUsPage.html" />
     <Content Include="Views\NavigationBar.html" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -101,6 +112,16 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CSS\bootstrap-grid.css.map" />
+    <Content Include="CSS\bootstrap-grid.min.css.map" />
+    <Content Include="CSS\bootstrap-reboot.css.map" />
+    <Content Include="CSS\bootstrap-reboot.min.css.map" />
+    <Content Include="CSS\bootstrap.css.map" />
+    <Content Include="CSS\bootstrap.min.css.map" />
+    <Content Include="javascript\bootstrap.bundle.js.map" />
+    <Content Include="javascript\bootstrap.bundle.min.js.map" />
+    <Content Include="javascript\bootstrap.js.map" />
+    <Content Include="javascript\bootstrap.min.js.map" />
     <None Include="packages.config" />
     <Content Include="Views\ClaimyFrontPage.html" />
     <Content Include="Views\CreateAccount.html" />
