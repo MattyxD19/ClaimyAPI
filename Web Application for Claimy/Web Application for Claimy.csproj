@@ -80,6 +80,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CSS\CreateAccount.css" />
     <Content Include="Global.asax" />
     <Content Include="Resources\Claimy_Logo_OG.png" />
     <Content Include="Views\NavigationBar.html" />
