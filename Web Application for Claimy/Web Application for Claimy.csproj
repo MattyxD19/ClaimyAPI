@@ -93,6 +93,8 @@
     <Content Include="javascript\bootstrap.bundle.min.js" />
     <Content Include="javascript\bootstrap.js" />
     <Content Include="javascript\bootstrap.min.js" />
+    <Content Include="Resources\ClaimyAILogo.png" />
+    <Content Include="Resources\ClaimyTransparent.png" />
     <Content Include="Resources\Claimy_Logo_OG.png" />
     <Content Include="Resources\LoremIpsumBreadText.html" />
     <Content Include="Resources\LoremIpsumText.txt" />
