@@ -94,8 +94,11 @@
     <Content Include="javascript\bootstrap.js" />
     <Content Include="javascript\bootstrap.min.js" />
     <Content Include="Resources\Claimy_Logo_OG.png" />
+    <Content Include="Resources\LoremIpsumBreadText.html" />
     <Content Include="Resources\LoremIpsumText.txt" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Resources\claimyDarkBlueLogo.png" />
+    <Content Include="Resources\P-skilt.png" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
