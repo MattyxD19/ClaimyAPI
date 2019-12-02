@@ -98,7 +98,7 @@
     <Content Include="Resources\LoremIpsumText.txt" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Resources\claimyDarkBlueLogo.png" />
-    <Content Include="Resources\P-skilt.png" />
+    <Content Include="Resources\ClaimyLogoLight.png" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
