@@ -95,6 +95,11 @@
     <Content Include="javascript\bootstrap.min.js" />
     <Content Include="Resources\Claimy_Logo_OG.png" />
     <Content Include="Resources\LoremIpsumText.txt" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <Content Include="Views\AboutUsPage.html" />
     <Content Include="Views\NavigationBar.html" />
     <Content Include="Web.config" />
@@ -131,6 +136,8 @@
     <Content Include="Views\loginForm1.html" />
     <Content Include="Views\MenuBar.html" />
     <Content Include="Views\_Layout.html" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
