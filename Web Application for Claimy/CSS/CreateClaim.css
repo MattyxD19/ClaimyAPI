@@ -14,16 +14,20 @@
     font-size: 25px;
 }
 
-.barItemButton {
+.barItemButton, .selectedBarItemButton {
     background-color: lightskyblue;
     color: white;
 }
 
-    .barItemButton:hover {
+    .barItemButton:hover, .selectedBarItemButton:hover {
         text-decoration: none;
         background-color: lightskyblue;
         color: grey;
     }
+
+.selectedBarItemButton{
+    font-weight: bold;
+}
 
 table, th {
     padding: 25px;
@@ -62,4 +66,8 @@ input {
 ImageBox {
     content: "";
     clear: both;
+}
+
+.createClaimTable{
+    padding: 20px;
 }

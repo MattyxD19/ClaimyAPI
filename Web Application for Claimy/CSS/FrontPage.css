@@ -1,6 +1,7 @@
 ﻿body {
     background-image: url('../Resources/Claimy_Logo_OG.png');
     background-size: cover;
+    background-repeat: no-repeat;
 }
 
     /* This is the top bar of the screen */
@@ -12,6 +13,8 @@
 .barItemButton {
     background-color: lightskyblue;
     color: white;
+    padding-left: 20px;
+    padding-right: 30px;
 }
 
     .barItemButton:hover {
@@ -33,7 +36,9 @@
     }
     /* top bar ends here */
 
-
+#TopOfPage {
+    background-color: lightskyblue;
+}
 
 
 /*.loginButton {
