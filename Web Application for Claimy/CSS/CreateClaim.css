@@ -5,6 +5,8 @@
 
 .borderless td, .borderless th {
     border: none;
+    text-align: left;
+    margin-right: 25px;
 }
 
 .informationBar {
@@ -32,6 +34,20 @@ td {
     text-align: left;
 }
 
+label {
+    display: inline-block;
+    float: left;
+    clear: left;
+    width: 250px;
+    text-align: left;
+    font-size: 18px;
+}
+
+input {
+    display: inline-block;
+    float: left;
+}
+
 .column {
     float: left;
     width: 33.33%;
@@ -40,5 +56,10 @@ td {
 .row:after {
     content: "";
     display: table;
+    clear: both;
+}
+
+ImageBox {
+    content: "";
     clear: both;
 }

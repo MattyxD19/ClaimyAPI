@@ -3,10 +3,7 @@
     background-size: cover;
 }
 
-.borderless td, .borderless th {
-	border: none;
-}
-
+    /* This is the top bar of the screen */
 .informationBar {
     background-color: lightskyblue;
     font-size: 25px;
@@ -23,4 +20,30 @@
         color: grey;
     }
 
-.loginButton
+.barItemButton2 {
+    background-color: lightskyblue;
+    color: white;
+    float: right;
+}
+
+    .barItemButton2:hover {
+        text-decoration: none;
+        background-color: lightskyblue;
+        color: grey;
+    }
+    /* top bar ends here */
+
+
+
+
+/*.loginButton {
+    text-align: right;
+    background-color: lightskyblue;
+    color: white;
+}
+
+    .loginButton:hover {
+        text-decoration: none;
+        background-color: lightskyblue;
+        color: grey;
+    }*/

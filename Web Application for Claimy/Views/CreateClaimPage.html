@@ -4,82 +4,97 @@
     <meta charset="utf-8" />
     <title>Claimy</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="../CSS/CreateClaim.css" />
+    <link rel="stylesheet" href="../CSS/CreateClaim.css"/>
 </head>
 <body>
 
-	<div id="include"></div>
+    <div id="include"></div>
 
-	<!--Information Bar - keep on all pages.-->
-	<div class="informationBar">
-		<a href="#" class="barItemButton"> <img src="../Resources/Claimy_Logo_OG.png" width="100" height="50" /></a>
-		<a href="~/Views/Shared/_Layout.cshtml" class="barItemButton">File claim</a>
-		<a href="#" class="barItemButton">About Us</a>
-	</div>
+    <!--Information Bar - keep on all pages.-->
+    <div class="informationBar">
+        <a href="#" class="barItemButton"> <img src="../Resources/Claimy_Logo_OG.png" width="100" height="50" /></a>
+        <a href="~/Views/Shared/_Layout.cshtml" class="barItemButton">File claim</a>
+        <a href="#" class="barItemButton">About Us</a>
+    </div>
 
-	<!--Table for entering information regarding ticket-->
-	<table class="table borderless">
-		<tbody>
-			<tr>
-				<th scope="row"></th>
-				<td>
-					<label style="margin-right: 25px">Name</label>
-					<input style="border-color:deepskyblue" id="NameTextBox" />
-				</td>
-			</tr>
-			<tr>
-				<th scope="row"></th>
-				<td>
-					<label style="margin-right: 25px">City</label>
-					<input style="border-color:deepskyblue" id="CityTextBox" />
-				</td>
-			</tr>
-			<tr>
-				<th scope="row"></th>
-				<td>
-					<label style="margin-right: 25px">Ticket amount</label>
-					<input style="border-color:deepskyblue" id="TicketAmountTextBox" />
-				</td>
-			</tr>
-			<tr>
-				<th scope="row"></th>
-				<td>
-					<label style="margin-right: 25px">Parking Department</label>
-					<input style="border-color:deepskyblue" id="ParkingDepartmentTextBox" />
-				</td>
-			</tr>
-			<tr>
-				<th scope="row"></th>
-				<td>
-					<label style="margin-right: 25px">Ticket ID</label>
-					<input style="border-color:deepskyblue" id="TicketIDTextBox" />
-				</td>
-			</tr>
-			<tr>
-				<th scope="row"></th>
-				<td>
-					<label style="margin-right: 25px">Time of Day</label>
-					<input style="border-color:deepskyblue" id="ToDTextBox" />
-				</td>
-			</tr>
-		</tbody>
-	</table>
+    <div class="createClaimTable">
+        <div class="row">
+            <div class="col-md">
 
-	<!--For uploading images of ticket and car-->
-	<div class="ImageBox">
-		<h2>Upload a picture of the fine</h2>
-		<form action="/action_page.php">
-			<input type="file" name="ticketPicture" accept="image/*">
-			<input type="submit">
-		</form>
-	</div>
-	<div class="ParkingImage">
-		<h2>Upload a picture of your parked car(optional)</h2>
-		<form action="/action_page.php">
-			<input type="file" name="parkingPicture" accept="image/*" />
-			<input type="submit" />
-		</form>
-	</div>
+                <!--Table for entering information regarding ticket-->
+                <table class="table borderless">
+                    <tbody>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>
+                                <label style="margin-right: 25px">Name</label>
+                                <input style="border-color:deepskyblue" id="NameTextBox" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>
+                                <label style="margin-right: 25px">City</label>
+                                <input style="border-color:deepskyblue" id="CityTextBox" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>
+                                <label style="margin-right: 25px">Ticket amount</label>
+                                <input style="border-color:deepskyblue" id="TicketAmountTextBox" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>
+                                <label style="margin-right: 25px">Parking Department</label>
+                                <input style="border-color:deepskyblue" id="ParkingDepartmentTextBox" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>
+                                <label style="margin-right: 25px">Ticket ID</label>
+                                <input style="border-color:deepskyblue" id="TicketIDTextBox" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>
+                                <label style="margin-right: 25px">Time of Day</label>
+                                <input style="border-color:deepskyblue" id="ToDTextBox" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="col-md">
+
+                <!--For uploading images of ticket and car-->
+                <div class="ImageBox">
+                    <h3>Upload a picture of the fine</h3>
+                    <form action="/action_page.php">
+                        <input type="file" name="ticketPicture" accept="image/*">
+                        <input type="submit">
+                    </form>
+                </div>
+
+                <div class="ParkingImage">
+                    <h3>Upload a picture of your parked car(optional)</h3>
+                    <form action="/action_page.php">
+                        <input type="file" name="parkingPicture" accept="image/*" />
+                        <input type="submit" />
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
 
 
 </body>
