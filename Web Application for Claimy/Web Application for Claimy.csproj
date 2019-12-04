@@ -96,8 +96,8 @@
     <Content Include="Resources\ClaimyAILogo.png" />
     <Content Include="Resources\ClaimyTransparent2.png" />
     <Content Include="Resources\Claimy_Logo_OG.png" />
-    <Content Include="Resources\LoremIpsumBreadText.html" />
-    <Content Include="Resources\LoremIpsumText.txt" />
+    <Content Include="Resources\v1_Text_for_Webapp.docx" />
+    <Content Include="Resources\v1_Text_for_Webapp.pdf" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Resources\claimyDarkBlueLogo.png" />
     <Content Include="Resources\ClaimyLogoLight.png" />

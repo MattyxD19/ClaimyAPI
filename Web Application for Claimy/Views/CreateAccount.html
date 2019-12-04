@@ -122,47 +122,31 @@
     
     <!--not functional yet-->
     <script>
-        var email;
-        var password;
-        var name;
-        var adress;
-        var zipcode;
-        var phonenumber;
-        var country
-
             document.getElementById("CompleteAccount").onclick = function () {
 
-                email = document.getElementById('inputEmail').value;
-                password = document.getElementById('inputPassword').value;
-                name = document.getElementById('inputName').value;
-                adress = document.getElementById('inputAdress').value;
-                zipcode = document.getElementById('inputZipcode').value;
-                phonenumber = document.getElementById('inputPhone').value;
-                country = document.getElementById('inputCountry').value;
+              var email = document.getElementById('InputEmail').value;
+              var password = document.getElementById('InputPassword').value;
+              var name = document.getElementById('InputName').value;
+              var adress = document.getElementById('InputAdress').value;
+              var zipcode = document.getElementById('InputZipcode').value;
+              var phonenumber = document.getElementById('InputPhone').value;
+              var country = document.getElementById('InputCountry').value;
 
-                var accountObj = new Object();
+              window.alert(name);
+              console.log(email);
+              console.log(name);
 
-                accountObj.name = "name";
-                accountObj.adress = "adress";
-                accountObj.email = "email";
-                accountObj.phonenumber = phonenumber;
-                accountObj.password = "password";
-                accountObj.country = "country";
-                accountObj.zipcode = zipcode;
-                JSON.stringify(accountObj);
-                window.alert(name)
+              var accountObj = new Object();
 
+              accountObj.name = name;
+              accountObj.adress = adress;
+              accountObj.email = email;
+              accountObj.phonenumber = phonenumber;
+              accountObj.password = password;
+              accountObj.country = country;
+              accountObj.zipcode = zipcode;
+              console.log(JSON.stringify(accountObj));
 
-
-                //'{'
-                //    + '"fld_name":"name",'
-                //    + '"fld_adress":"adress",'
-                //    + '"fld_email":"email",'
-                //    + '"fld_phone_no":"phonenumber",'
-                //    + '"fld_password":"password",'
-                //    + '"fld_country_number":"country"'
-                //+'}'
-                window.alert(json.stringify(accountObj))
             }
 
 
