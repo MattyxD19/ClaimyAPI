@@ -4,51 +4,10 @@
     background-repeat: no-repeat;
 }
 
-    /* This is the top bar of the screen */
-.informationBar {
-    background-color: lightskyblue;
-    font-size: 25px;
+#header {
+
 }
 
-.barItemButton {
-    background-color: lightskyblue;
-    color: white;
-    padding-left: 20px;
-    padding-right: 30px;
+.navbar, navbar-expand-lg, navbar-light, bg-light {
+    background-color: lightskyblue !important;
 }
-
-    .barItemButton:hover {
-        text-decoration: none;
-        background-color: lightskyblue;
-        color: grey;
-    }
-
-.barItemButton2 {
-    background-color: lightskyblue;
-    color: white;
-    float: right;
-}
-
-    .barItemButton2:hover {
-        text-decoration: none;
-        background-color: lightskyblue;
-        color: grey;
-    }
-    /* top bar ends here */
-
-#TopOfPage {
-    background-color: lightskyblue;
-}
-
-
-/*.loginButton {
-    text-align: right;
-    background-color: lightskyblue;
-    color: white;
-}
-
-    .loginButton:hover {
-        text-decoration: none;
-        background-color: lightskyblue;
-        color: grey;
-    }*/

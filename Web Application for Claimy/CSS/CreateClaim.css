@@ -1,6 +1,7 @@
 ﻿body {
     background-image: url('../Resources/Claimy_Logo_OG.png');
     background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .borderless td, .borderless th {
