@@ -46,43 +46,57 @@
         Create a new account
     </h1>
 
-    <div class="input-group mb-3 justify-content-md-center col-md-4">
+    <div class="input-group mb-3 justify-content-center col-md-4 offset-4">
         <div class="input-group-prepend">
             <span class="input-group-text" id="basic-addon1"></span>
         </div>
-        <input type="text" class="form-control" placeholder="Email" id="Email" aria-label="Email">
+        <input type="text" class="form-control" placeholder="Email" aria-label="Email" id="InputEmail">
     </div>
 
-    <div class="input-group mb-3 col-md-6 align-self-md-center">
+    <div class="input-group mb-3 justify-content-center col-md-4 offset-4">
         <div class="input-group-prepend">
             <span class="input-group-text" id="basic-addon1"></span>
         </div>
-        <input type="password" class="form-control" placeholder="Password" aria-label="Password" />
+        <input type="password" class="form-control" placeholder="Password" aria-label="Password" id="InputPassword" />
     </div>
 
-    <div class="input-group mb-3 justify-content-md-center">
+    <div class="input-group mb-3 justify-content-center col-md-4 offset-4">
         <div class="input-group-prepend">
             <span class="input-group-text" id="basic-addon1"></span>
         </div>
-        <input type="text" class="form-control" placeholder="Name" aria-label="Name">
+        <input type="text" class="form-control" placeholder="Name" aria-label="Name" id="InputName">
     </div>
 
-    <div class="input-group mb-3 justify-content-md-center">
+    <div class="input-group mb-3 justify-content-center col-md-4 offset-4">
         <div class="input-group-prepend">
             <span class="input-group-text" id="basic-addon1"></span>
         </div>
-        <input type="text" class="form-control" placeholder="Adress" aria-label="Adress">
+        <input type="text" class="form-control" placeholder="Adress" aria-label="Adress" id="InputAdress">
     </div>
 
-    <div class="input-group mb-3 justify-content-md-center">
+    <div class="input-group mb-3 justify-content-center col-md-4 offset-4">
         <div class="input-group-prepend">
             <span class="input-group-text" id="basic-addon1"></span>
         </div>
-        <input type="text" class="form-control" placeholder="Phone number" aria-label="Phone Number">
+        <input type="text" class="form-control" placeholder="Zipcode" aria-label="Zipcode" id="InputZipcode">
+    </div>
+
+    <div class="input-group mb-3 justify-content-center col-md-4 offset-4">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1"></span>
+        </div>
+        <input type="text" class="form-control" placeholder="Phone number" aria-label="Phone Number" id="InputPhone">
+    </div>
+
+    <div class="input-group mb-3 justify-content-center col-md-4 offset-4">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1"></span>
+        </div>
+        <input type="text" class="form-control" placeholder="Country" aria-label="Country" id="InputCountry">
     </div>
 
     <button type="button" class="btn btn-light"></button>
-    <button type="button" class="btn btn-success">Create Account</button>
+    <button type="button" id="CompleteAccount" class="btn btn-success">Create Account</button>
 
     <!--Social media footer-->
     <div class="card">
@@ -104,6 +118,57 @@
     </div>
 
     <!-- Optional JavaScript -->
+    <!--Retrieving data from input fields and create a JSON String-->
+    
+    <!--not functional yet-->
+    <script>
+        var email;
+        var password;
+        var name;
+        var adress;
+        var zipcode;
+        var phonenumber;
+        var country
+
+            document.getElementById("CompleteAccount").onclick = function () {
+
+                email = document.getElementById('inputEmail').value;
+                password = document.getElementById('inputPassword').value;
+                name = document.getElementById('inputName').value;
+                adress = document.getElementById('inputAdress').value;
+                zipcode = document.getElementById('inputZipcode').value;
+                phonenumber = document.getElementById('inputPhone').value;
+                country = document.getElementById('inputCountry').value;
+
+                var accountObj = new Object();
+
+                accountObj.name = "name";
+                accountObj.adress = "adress";
+                accountObj.email = "email";
+                accountObj.phonenumber = phonenumber;
+                accountObj.password = "password";
+                accountObj.country = "country";
+                accountObj.zipcode = zipcode;
+                JSON.stringify(accountObj);
+                window.alert(name)
+
+
+
+                //'{'
+                //    + '"fld_name":"name",'
+                //    + '"fld_adress":"adress",'
+                //    + '"fld_email":"email",'
+                //    + '"fld_phone_no":"phonenumber",'
+                //    + '"fld_password":"password",'
+                //    + '"fld_country_number":"country"'
+                //+'}'
+                window.alert(json.stringify(accountObj))
+            }
+
+
+    </script>
+
+
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
