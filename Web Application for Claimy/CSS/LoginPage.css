@@ -9,17 +9,17 @@
 }
 
 .rounded {
-    background-color: lightskyblue;
+    background-color: #537DA6;
     border-style: solid;
-    border-color: lightskyblue;
+    border-color: #537DA6;
     border-radius: .25rem !important;
     height: 220px;
     width: 210px;
 }
 
 .vertical-center {
-    min-height: 100%; /* Fallback for browsers do NOT support vh unit */
-    min-height: 100vh; /* These two lines are counted as one :-)       */
+    min-height: 100%;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     background-color: transparent;
@@ -30,5 +30,5 @@
 }
 
 .navbar, navbar-expand-lg, navbar-light, bg-light {
-    background-color: lightskyblue !important;
+    background-color: #537DA6 !important;
 }
