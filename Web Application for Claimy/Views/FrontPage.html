@@ -16,22 +16,13 @@
 </head>
 <body>
     <!--Navigation bar-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-dark" id="NavigationID">
-        <a class="navbar-brand" href="#"> <img src="../Resources/ClaimyTransparent2.png" style="height: 50px; width: 200px;" /></a>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav" style="color: white;">
-                <li class="nav-item active">
-                    <a class="nav-link" href="ClaimyFrontPage.html" style="color: white;">File claim</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="loginForm1.html" style="color: white;">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="CreateAccount.html" style="color: white;">Create account</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="AboutUsPage.html" style="color: white;">About us</a>
-                </li>
+    <nav class="navbar navbar-expand navbar-light bg-dark">
+        <div class="nav navbar-nav">
+            <a class="navbar-brand" href="ClaimyFrontPage.html"><img src="../Resources/ClaimyTransparent2.png" style="height: 50px; width: 200px;" /> </a>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="AboutUsPage.html" style="color:white; list-style: none; margin: 15px; ">about us</a></li>
+                <li><a href="CreateAccount.html" style="color: white; list-style: none; margin: 15px;"><i class="fa fa-user"></i> Sign Up</a></li>
+                <li><a href="loginForm1.html" style="color: white; list-style: none; margin: 15px; "><i class="fa fa-lock"></i> Login</a></li>
             </ul>
         </div>
     </nav>
@@ -43,20 +34,22 @@
     </div>
 
     <!--Social media footer-->
-    <div class="container-fluid " style="margin-top: 100px;">
-
+    <div class="container-fluid col-8 offset-2">
         <div class="card-footer">
-            <h5 class="card-title">Find os på:</h5>
-            <ul class="SocialMediaButtons">
-                <li style="list-style-type: none">
+            <h5 class="card-titlecol-8 offset-2">Find os på:</h5>
+            <ul class="SocialMediaButtons col-4 offset-2">
+                <li style="list-style-type: none;">
                     <a href="https://www.facebook.com/Claimy-112382550242297/" title="Følg os på Facebook">
                         <i class="fa fa-facebook" style="font-size:36px"></i>
                     </a>
-                    <p>Claimy kan kontaktes telefonisk, via chat og e-mail.</p>
-                    <p>+45 60 22 30 50</p>
-                    <p>info@claimy.dk</p>
-                    <p>Alsion 2, 6400 Sønderborg</p>
+
                 </li>
+            </ul>
+            <ul class="list-group col-8 offset-2 container-fluid ">
+                <p>Claimy kan kontaktes telefonisk, via chat og e-mail.</p>
+                <p>+45 60 22 30 50</p>
+                <p>info@claimy.dk</p>
+                <p>Alsion 2, 6400 Sønderborg</p>
             </ul>
         </div>
     </div>
