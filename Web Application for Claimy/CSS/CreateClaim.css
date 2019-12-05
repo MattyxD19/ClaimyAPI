@@ -8,9 +8,10 @@
     border: none;
     text-align: left;
     margin-right: 25px;
+    background-color: lightskyblue;
 }
 
-.informationBar {
+/*.informationBar {
     background-color: lightskyblue;
     font-size: 25px;
 }
@@ -24,11 +25,11 @@
         text-decoration: none;
         background-color: lightskyblue;
         color: grey;
-    }
+    }*/
 
-.selectedBarItemButton{
+/*.selectedBarItemButton{
     font-weight: bold;
-}
+}*/
 
 table, th {
     padding: 25px;
@@ -69,6 +70,6 @@ ImageBox {
     clear: both;
 }
 
-.createClaimTable{
+/*.createClaimTable{
     padding: 20px;
-}
+}*/
