@@ -15,11 +15,11 @@
 
     <title>Claimy - About us!</title>
 </head>
-<body onload="readFile();">
+<body>
 
     <!--Navigation bar-->
     <nav class="navbar navbar-expand-lg navbar-light bg-dark" id="NavigationID">
-        <a class="navbar-brand" href="#"> <img src="../Resources/ClaimyTransparent2.png" style="height: 50px; width: 200px;"/></a>
+        <a class="navbar-brand" href="#"> <img src="../Resources/ClaimyTransparent2.png" style="height: 50px; width: 200px;" /></a>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav" style="color: white;">
                 <li class="nav-item active">
@@ -38,14 +38,14 @@
         </div>
     </nav>
 
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-
+    <div id="carouselExampleIndicators" class="carousel slide size" data-ride="carousel">
+        <!--Der skal findes en metode hvor billederne har den samme størrelse-->
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img src="/Resources/claimyDarkBlueLogo.png" class="d-block w-100 h-25" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="/Resources/ClaimyLogoLight.png" class="d-block w-100 h-25" alt="...">
+                <img src="/Resources/ClaimyAnsatte.PNG" class="d-block w-100 h-25" alt="...">
             </div>
 
         </div>
@@ -59,26 +59,23 @@
         </a>
     </div>
 
-    <!--ikke funktionelt endnu-->
-    <div class="jumbotron row d-flex justify-content-center col-md-8 offset-2">
-        <div class="col-md-6 justify-content-center">
-            <div id="output"></div>
-            <script type="text/javascript" src="~/Scripts/jquery-3.4.1.js"></script>
-            <script type="text/javascript" src="~/Scripts/ReadFileClaimy.js"></script>
+  
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <div id="txt" onload="load()"></div>
         </div>
     </div>
 
-
-
+    
 
 
 
 
     <!--Social media footer-->
-    <div class="card">
-        <div class="card-header">
-        </div>
-        <div class="card-body">
+    <div class="container-fluid " style="margin-top: 100px;">
+
+        <div class="card-footer">
             <h5 class="card-title">Find os på:</h5>
             <ul class="SocialMediaButtons">
                 <li style="list-style-type: none">
@@ -93,6 +90,23 @@
             </ul>
         </div>
     </div>
+
+    <script>
+
+        var txtFile = new XMLHttpRequest();
+        var allText = "file not found";
+        txtFile.onreadystatechange = function () {
+            if (txtFile.readyState === XMLHttpRequest.DONE && txtFile.status == 200) {
+                allText = txtFile.responseText;
+                allText = allText.split("\n").join("<br>");
+            }
+
+            document.getElementById('txt').innerHTML = allText;
+        }
+        txtFile.open("GET", '/Resources/ClaimyText.txt', true);
+        txtFile.send(null);
+
+    </script>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
