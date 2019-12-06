@@ -80,13 +80,37 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CSS\CreateClaim.css" />
-    <Content Include="CSS\FrontPage.css" />
-    <Content Include="CSS\LoginPage.css" />
+    <Content Include="CSS\bootstrap-grid.css" />
+    <Content Include="CSS\bootstrap-grid.min.css" />
+    <Content Include="CSS\bootstrap-reboot.css" />
+    <Content Include="CSS\bootstrap-reboot.min.css" />
+    <Content Include="CSS\bootstrap.css" />
+    <Content Include="CSS\bootstrap.min.css" />
+    <Content Include="CSS\CreateAccount.css" />
+    <Content Include="CSS\NavigationBarCSS.css" />
     <Content Include="Global.asax" />
+    <Content Include="javascript\bootstrap.bundle.js" />
+    <Content Include="javascript\bootstrap.bundle.min.js" />
+    <Content Include="javascript\bootstrap.js" />
+    <Content Include="javascript\bootstrap.min.js" />
+    <Content Include="Resources\ClaimyAILogo.png" />
+    <Content Include="Resources\ClaimyAnsatte.PNG" />
+    <Content Include="Resources\ClaimyText.txt" />
+    <Content Include="Resources\ClaimyTransparent2.png" />
     <Content Include="Resources\Claimy_Logo_OG.png" />
-    <Content Include="Views\CreateClaimPage.html" />
-    <Content Include="Views\ClaimyLoginPage.html" />
+    <Content Include="Resources\v1_Text_for_Webapp.docx" />
+    <Content Include="Resources\v1_Text_for_Webapp.pdf" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Resources\claimyDarkBlueLogo.png" />
+    <Content Include="Resources\ClaimyLogoLight.png" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <Content Include="Scripts\ReadFileClaimy.js" />
+    <Content Include="Views\AboutUsPage.html" />
+    <Content Include="Views\CustomerPage.html" />
+    <Content Include="Views\Footer.html" />
     <Content Include="Views\NavigationBar.html" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -105,12 +129,25 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CSS\bootstrap-grid.css.map" />
+    <Content Include="CSS\bootstrap-grid.min.css.map" />
+    <Content Include="CSS\bootstrap-reboot.css.map" />
+    <Content Include="CSS\bootstrap-reboot.min.css.map" />
+    <Content Include="CSS\bootstrap.css.map" />
+    <Content Include="CSS\bootstrap.min.css.map" />
+    <Content Include="javascript\bootstrap.bundle.js.map" />
+    <Content Include="javascript\bootstrap.bundle.min.js.map" />
+    <Content Include="javascript\bootstrap.js.map" />
+    <Content Include="javascript\bootstrap.min.js.map" />
     <None Include="packages.config" />
     <Content Include="Views\ClaimyFrontPage.html" />
     <Content Include="Views\CreateAccount.html" />
+    <Content Include="Views\FrontPage.html" />
     <Content Include="Views\loginForm1.html" />
     <Content Include="Views\MenuBar.html" />
     <Content Include="Views\_Layout.html" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
