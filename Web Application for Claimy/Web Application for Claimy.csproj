@@ -109,6 +109,8 @@
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <Content Include="Scripts\ReadFileClaimy.js" />
     <Content Include="Views\AboutUsPage.html" />
+    <Content Include="Views\ClaimyLoginPage.html" />
+    <Content Include="Views\CreateClaimPage.html" />
     <Content Include="Views\CustomerPage.html" />
     <Content Include="Views\Footer.html" />
     <Content Include="Views\NavigationBar.html" />

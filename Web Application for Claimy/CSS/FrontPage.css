@@ -1,0 +1,13 @@
+﻿body {
+    background-image: url('../Resources/Claimy_Logo_OG.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#header {
+
+}
+
+.navbar, navbar-expand-lg, navbar-light, bg-light {
+    background-color: #537DA6 !important;
+}
