@@ -7,7 +7,7 @@ using System.Web.Http;
 
 namespace Web_Application_for_Claimy.Controllers
 {
-    public class CustomerController : ApiController
+    public class LoginController : ApiController
     {
         // GET api/<controller>
         public IEnumerable<string> Get()

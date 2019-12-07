@@ -6,18 +6,23 @@ using System.Web;
 
 namespace Web_Application_for_Claimy.Models
 {
-    public class CustomerTable
+    public class ParkingCompany
     {
+
+        /**
+         * ID should be the CVR number
+         * but the primary key cant be set
+         * since the field accepts "ID" as a name
+         */
         public int ID { get; set; }
         [Required]
         public string Name { get; set; }
-        public string Email { get; set; }
         public string Adress { get; set; }
+        public string Email { get; set; }
         public int PhoneNumber { get; set; }
-        public string Password { get; set; }
-        public int Zipcode { get; set; }
+        public string ContactPerson { get; set; }
 
-        //Foreign Key
-        public CountryList country { get; set; }
+        //Foreing Key
+        public CountryList Country { get; set; }
     }
 }

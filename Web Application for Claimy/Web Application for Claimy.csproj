@@ -43,6 +43,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Web.DynamicData" />
@@ -87,12 +93,16 @@
     <Content Include="CSS\bootstrap.css" />
     <Content Include="CSS\bootstrap.min.css" />
     <Content Include="CSS\CreateAccount.css" />
+    <Content Include="CSS\CreateClaim.css" />
+    <Content Include="CSS\FrontPage.css" />
+    <Content Include="CSS\LoginPage.css" />
     <Content Include="CSS\NavigationBarCSS.css" />
     <Content Include="Global.asax" />
     <Content Include="javascript\bootstrap.bundle.js" />
     <Content Include="javascript\bootstrap.bundle.min.js" />
     <Content Include="javascript\bootstrap.js" />
     <Content Include="javascript\bootstrap.min.js" />
+    <Content Include="javascript\RetrieveNewAccountScript.js" />
     <Content Include="Resources\ClaimyAILogo.png" />
     <Content Include="Resources\ClaimyAnsatte.PNG" />
     <Content Include="Resources\ClaimyText.txt" />
@@ -118,17 +128,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\CaseTablesController.cs" />
+    <Compile Include="Controllers\CountryListsController.cs" />
+    <Compile Include="Controllers\CustomerTablesController.cs" />
+    <Compile Include="Controllers\EmployeeTablesController.cs" />
+    <Compile Include="Controllers\ImageTablesController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\ParkingCompaniesController.cs" />
+    <Compile Include="Controllers\TicketTablesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\CaseTable.cs" />
-    <Compile Include="Models\ClaimyEmployeeTable.cs" />
-    <Compile Include="Models\CountryListTable.cs" />
+    <Compile Include="Models\CountryList.cs" />
     <Compile Include="Models\CustomerTable.cs" />
+    <Compile Include="Models\EmployeeTable.cs" />
     <Compile Include="Models\ImageTable.cs" />
-    <Compile Include="Models\ParkingCompanyTable.cs" />
+    <Compile Include="Models\ParkingCompany.cs" />
     <Compile Include="Models\TicketTable.cs" />
+    <Compile Include="Models\Web_Application_for_ClaimyContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

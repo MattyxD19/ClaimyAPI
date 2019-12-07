@@ -18,28 +18,36 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="AboutUsPage.html" style="color:white; list-style: none; margin: 15px; ">about us</a></li>
                 <li><a href="CreateAccount.html" style="color: white; list-style: none; margin: 15px;"><i class="fa fa-user"></i> Sign Up</a></li>
-                <li><a href="loginForm1.html" style="color: white; list-style: none; margin: 15px; "><i class="fa fa-lock"></i> Login</a></li>
+                <li><a href="ClaimyLoginPage.html" style="color: white; list-style: none; margin: 15px; "><i class="fa fa-lock"></i> Login</a></li>
             </ul>
         </div>
     </nav>
 
     <div class="jumbotron vertical-center">
-        <div class="container rounded">
+        <div class="container rounded" style="height: 300px; width:250px;">
             <div class="row justify-content-center">
                 <label for="uname"><b>Username</b></label>
             </div>
-            <div class="row justify-content-center">
-                <input type="text" placeholder="Enter Username" name="uname" required>
+            <div class="input-group mb-3 justify-content-center">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1"></span>
+                </div>
+                <input type="text" class="form-control" placeholder="UserName" aria-label="Password" id="InputUsername" />
             </div>
+
             <div class="row justify-content-center">
                 <label for="psw"><b>Password</b></label>
             </div>
-            <div class="row justify-content-center">
-                <input type="password" placeholder="Enter Password" name="psw" required>
+            <div class="input-group mb-3 justify-content-center">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1"></span>
+                </div>
+                <input type="password" class="form-control" placeholder="Password" aria-label="Password" id="InputPassword" />
             </div>
-            <div class="row justify-content-center">
-                <button type="submit" class="loginbtn">Login</button>
-                <button type="button" class="cancelbtn">Cancel</button>
+
+            <div class="row  justify-content-center">
+                <button type="submit" id="Login" class="loginbtn btn-info rounded-sm" style="background-color: cornflowerblue; border-color: dimgray">Login</button>
+                <button type="button" id="Cancel" class="cancelbtn btn-info rounded-sm" style="background-color: cornflowerblue; border-color: dimgray">Cancel</button>
             </div>
             <div class="row justify-content-center">
                 <label>
@@ -72,6 +80,24 @@
             </ul>
         </div>
     </div>
+
+    <!--Scripts-->
+    <script>
+         var loginOBj = new Object();
+        document.getElementById("Login").onclick = function () {
+            var user = document.getElementById("InputUsername");
+            var password = document.getElementById("InputPassword");
+            loginOBj.user = user;
+            loginOBj.password = password;
+
+            console.log(JSON.stringify(loginOBj));
+        };
+
+        $.ajax({
+            url: '/api/'
+        });
+
+    </script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

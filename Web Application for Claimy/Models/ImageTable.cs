@@ -1,24 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
-using System.ComponentModel.DataAnnotations;
-using System.Drawing;
 
-namespace Web_Api_Claimy.Models
+namespace Web_Application_for_Claimy.Models
 {
     public class ImageTable
     {
-        public int fld_ID { get; set; }
+        public int ID { get; set; }
         [Required]
-
-        public Image fld_Image { get; set; }
-
-        public string fld_Description { get; set; }
-
-        //foreign key
-        public int fld_Ticket_ID { get; set; }
-        // property Navigation 
-        public TicketTable ticket { get; set; }
+        public Byte[] image { get; set; }
+        
+        //Foreign Key
+        public TicketTable ticket_ID { get; set; }
     }
 }

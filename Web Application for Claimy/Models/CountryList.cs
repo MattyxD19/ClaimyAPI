@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
-using System.ComponentModel.DataAnnotations;
 
-namespace Web_Api_Claimy.Models
+namespace Web_Application_for_Claimy.Models
 {
-    public class CountryListTable
+    public class CountryList
     {
-        public int id { get; set; }
+        public int ID { get; set; }
         [Required]
         public string country { get; set; }
         public int zipcode { get; set; }
