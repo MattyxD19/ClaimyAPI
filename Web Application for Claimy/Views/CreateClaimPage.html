@@ -8,7 +8,6 @@
 
     <!--icons-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 </head>
 <body>
 
@@ -24,54 +23,95 @@
         </div>
     </nav>
 
-
     <!--Table for entering information regarding ticket-->
     <div class="jumbotron vertical-center">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row align-items-center">
                 <div class="col">
                     <table class="table borderless">
                         <tbody>
                             <tr>
-                                <th scope="row"></th>
+                                <th class="row"></th>
                                 <td>
-                                    <label class="createClaimLabel" style="margin-right: 25px">Name</label>
-                                    <input style="border-color:#537DA6" id="NameTextBox" />
+                                    <label class="createClaimLabel">Bøde ID</label>
+                                    <input type="text" class="input-group-prepend" id="TicketIDBox" />
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row"></th>
+                                <th class="row"></th>
                                 <td>
-                                    <label class="createClaimLabel" style="margin-right: 25px">City</label>
-                                    <input style="border-color:#537DA6" id="CityTextBox" />
+                                    <label class="createClaimLabel">Overtrædelse</label>
+                                    <input type="text" class="input-group-prepend" id="ViolationBox" />
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row"></th>
+                                <th class="row"></th>
                                 <td>
-                                    <label class="createClaimLabel" style="margin-right: 25px">Ticket amount</label>
-                                    <input style="border-color:#537DA6" id="TicketAmountTextBox" />
+                                    <label class="createClaimLabel">Skattenummer</label>
+                                    <input type="text" class="input-group-prepend" id="TaxNumberBox" />
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row"></th>
+                                <th class="row"></th>
                                 <td>
-                                    <label class="createClaimLabel" style="margin-right: 25px">Parking Department</label>
-                                    <input style="border-color:#537DA6" id="ParkingDepartmentTextBox" />
+                                    <label class="createClaimLabel">Dato</label>
+                                    <input type="date" class="input-group-prepend" id="DateBox" />
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row"></th>
+                                <th class="row"></th>
                                 <td>
-                                    <label class="createClaimLabel" style="margin-right: 25px">Ticket ID</label>
-                                    <input style="border-color:#537DA6" id="TicketIDTextBox" />
+                                    <label class="createClaimLabel">Tidspunkt</label>
+                                    <input type="time" class="input-group-prepend" id="TimeOfDayBox" />
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row"></th>
+                                <th class="row"></th>
                                 <td>
-                                    <label class="createClaimLabel" style="margin-right: 25px">Time of Day</label>
-                                    <input style="border-color:#537DA6" id="ToDTextBox" />
+                                    <label class="createClaimLabel">Registreringsnummer (bil)</label>
+                                    <input type="text" class="input-group-prepend" id="CarRegBox" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="row"></th>
+                                <td>
+                                    <label class="createClaimLabel">Parkeringsplads-ID</label>
+                                    <input type="text" class="input-group-prepend" id="parkingSpaceIDBox" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="row"></th>
+                                <td>
+                                    <label class="createClaimLabel">Parkeringsvagt-nummer</label>
+                                    <input type="text" class="input-group-prepend" id="TraficOfficerIDBox" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="row"></th>
+                                <td>
+                                    <label class="createClaimLabel">Parkeringsafgift</label>
+                                    <input type="text" class="input-group-prepend" id="ParkingAmountBox" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="row"></th>
+                                <td>
+                                    <label class="createClaimLabel">Kontonummer</label>
+                                    <input type="text" class="input-group-prepend" id="PaymentInfoBox" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="row"></th>
+                                <td>
+                                    <label class="createClaimLabel">Bilmærke</label>
+                                    <input type="text" class="input-group-prepend" id="CarBrandBox" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="row"></th>
+                                <td>
+                                    <label class="createClaimLabel">CVR-Nummer</label>
+                                    <input type="text" class="input-group-prepend" id="CVRNumberBox" />
                                 </td>
                             </tr>
                         </tbody>
@@ -103,7 +143,7 @@
             <div class="row top-buffer">
                 <div class="col">
                     <div class="text-center">
-                        <button type="submit" class="submitButton">Submit Claim</button>
+                        <button type="submit" class="submitButton" id="SubmitButton">Submit Claim</button>
                     </div>
                 </div>
             </div>
@@ -119,7 +159,6 @@
                     <a href="https://www.facebook.com/Claimy-112382550242297/" title="Følg os på Facebook">
                         <i class="fa fa-facebook" style="font-size:36px"></i>
                     </a>
-
                 </li>
             </ul>
             <ul class="list-group col-8 offset-2 container-fluid ">
@@ -130,6 +169,63 @@
             </ul>
         </div>
     </div>
+
+    <!--Writing to the database script-->
+    <script>
+
+        var ticketObj = new Object;
+
+        document.getElementById("SubmitButton").onclick = function () {
+
+            var ticketID = document.getElementById("TicketIDBox");
+            var violation = document.getElementById("ViolationBox");
+            var taxNumber = document.getElementById("TaxNumberBox");
+            var selectedDate = document.getElementById("DateBox");
+            var timeOfDay = document.getElementById("TimeOfDayBox");
+            var carReg = document.getElementById("CarRegBox");
+            var parkingID = document.getElementById("parkingSpaceIDBox")
+            var trafficOfficerID = document.getElementById("TraficOfficerIDBox");
+            var parkingAmount = document.getElementById("ParkingAmountBox");
+            var paymentInfo = document.getElementById("PaymentInfoBox");
+            var carBrand = document.getElementById("CarBrandBox");
+            var CVR = document.getElementById("CVRNumberBox");
+
+
+            ticketObj.fld_Ticket_ID = ticketID;
+            ticketObj.fld_Law_Violation = violation;
+            ticketObj.fld_tax_number = taxNumber;
+            ticketObj.fld_date_time = selectedDate + "" + timeOfDay;
+            ticketObj.fld_car_reg = carReg;
+            ticketObj.fld_parkingspace_id = parkingID;
+            ticketObj.fld_traffic_warden_no = trafficOfficerID;
+            ticketObj.fld_amount = parkingAmount;
+            ticketObj.fld_payment_info = paymentInfo;
+            ticketObj.fld_car_brand = carBrand;
+            ticketObj.fld_CVRNumber = CVR;
+            ticketObj.fld_Customer_ID = 1;
+
+            
+
+            $.ajax({
+                url: "https://localhost:44324/api/TicketTables",
+                type: "POST",
+                dataType: "JSONJ",
+                data: JSON.stringify(ticketObj),
+                //type: should be same in server code, otherwise code will not run
+                ContentType: "application/json",
+                success: function (response) {
+                    alert(JSON.stringify(response));
+                },
+                error: function (err) {
+                    alert(JSON.stringify(err));
+                }
+            });
+           
+
+            console.log(JSON.stringify(ticketObj));
+
+        };
+    </script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
