@@ -87,6 +87,9 @@
     <Content Include="CSS\bootstrap.css" />
     <Content Include="CSS\bootstrap.min.css" />
     <Content Include="CSS\CreateAccount.css" />
+    <Content Include="CSS\CreateClaim.css" />
+    <Content Include="CSS\FrontPage.css" />
+    <Content Include="CSS\LoginPage.css" />
     <Content Include="CSS\NavigationBarCSS.css" />
     <Content Include="Global.asax" />
     <Content Include="javascript\bootstrap.bundle.js" />
