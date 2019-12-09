@@ -1,5 +1,5 @@
 ﻿body {
-    background-image: url('../Resources/Claimy_Logo_OG.png');
+    background-image: linear-gradient(#537DA6, white);
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -9,12 +9,12 @@
 }
 
 .rounded {
-    background-color: #537DA6;
+    /*background-color: #537DA6;*/
     border-style: solid;
-    border-color: #537DA6;
+    border-color: white;
     border-radius: .25rem !important;
-    height: 220px;
-    width: 210px;
+    height: 300px;
+    width: 280px;
 }
 
 .vertical-center {
@@ -25,10 +25,90 @@
     background-color: transparent;
 }
 
-.row {
-    
-}
-
 .navbar, navbar-expand-lg, navbar-light, bg-light {
     background-color: #537DA6 !important;
 }
+
+.loginbtn {
+    padding: 10px 20px;
+    text-align: center;
+    background-color: white;
+    color: #537DA6;
+    font-weight: bold;
+    font-size: 12px;
+    border: solid;
+    border-radius: 12px;
+    border-color: #537DA6;
+}
+    .loginbtn:hover {
+        background-color: #537DA6;
+        color: white;
+    }
+
+.cancelbtn {
+    padding: 10px 20px;
+    text-align: center;
+    background-color: white;
+    color: #537DA6;
+    font-weight: bold;
+    font-size: 12px;
+    border: solid;
+    border-radius: 12px;
+    border-color: #537DA6;
+}
+    .cancelbtn:hover {
+        background-color: #537DA6;
+        color: white;
+    }
+
+.loginTextfields {
+    display: inline-block;
+    float: left;
+    background-color: white;
+    color: #537DA6;
+    border-radius: 12px;
+    font-size: 20px;
+    text-align: center;
+    border: solid;
+    border-color: #537DA6;
+}
+    .input:hover {
+        background-color: #537DA6;
+        color: white;
+    }
+
+.loginLabel {
+    color: white;
+    width: 250px;
+    font-size: 18px;
+}
+
+/*.regularCheckbox {
+    -webkit-appearance: none;
+    background-color: white;
+    border: 15px solid #537DA6;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+    padding: 18px;
+    border-radius: 3px;
+    display: inline-block;
+    position: relative;
+}
+
+.regular-checkbox:active, .regular-checkbox:checked:active {
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+}
+
+.regular-checkbox:checked {
+    background-color: #e9ecee;
+    border: 1px solid #adb8c0;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+    color: #99a1a7;
+}
+    .regular-checkbox:checked:after {
+        content: '\2714';
+        font-size: 14px;
+        position: absolute;
+        top: 0px;
+        left: 3px;
+        color: #99a1a7;
+    }*/
