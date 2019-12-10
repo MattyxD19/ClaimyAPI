@@ -5,12 +5,12 @@ namespace Web_Application_for_Claimy.Models
 {
     public class ImageTable
     {
-        public int ID { get; set; }
+        public string ID { get; set; }
 
         [Required]
-        public Byte[] image { get; set; }
+        public Byte[] Image { get; set; }
 
         //Foreign Key
-        public TicketTable ticket_ID { get; set; }
+        public TicketCaseTable Ticket_ID { get; set; }
     }
 }

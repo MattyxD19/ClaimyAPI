@@ -128,25 +128,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\CaseTablesController.cs" />
-    <Compile Include="Controllers\CountryListsController.cs" />
-    <Compile Include="Controllers\CustomerTablesController.cs" />
-    <Compile Include="Controllers\EmployeeTablesController.cs" />
-    <Compile Include="Controllers\ImageTablesController.cs" />
-    <Compile Include="Controllers\LoginController.cs" />
-    <Compile Include="Controllers\ParkingCompaniesController.cs" />
-    <Compile Include="Controllers\TicketTablesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\CaseTable.cs" />
     <Compile Include="Models\CountryList.cs" />
     <Compile Include="Models\CustomerTable.cs" />
     <Compile Include="Models\EmployeeTable.cs" />
     <Compile Include="Models\ImageTable.cs" />
     <Compile Include="Models\ParkingCompany.cs" />
-    <Compile Include="Models\TicketTable.cs" />
-    <Compile Include="Models\Web_Application_for_ClaimyContext.cs" />
+    <Compile Include="Models\TicketCaseTable.cs" />
+    <Compile Include="Models\ZipcityTable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -178,6 +169,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Controllers\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

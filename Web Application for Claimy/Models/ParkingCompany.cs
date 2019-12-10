@@ -9,17 +9,19 @@ namespace Web_Application_for_Claimy.Models
          * but the primary key cant be set
          * since the field accepts "ID" as a name
          */
-        public int ID { get; set; }
+        public string ID_CVR { get; set; }
 
         [Required]
         public string Name { get; set; }
 
         public string Adress { get; set; }
         public string Email { get; set; }
-        public int PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
         public string ContactPerson { get; set; }
 
-        //Foreing Key
+        //Foreign key
+        public int ID_Country { get; set; }
+        //Navigation property
         public CountryList Country { get; set; }
     }
 }
