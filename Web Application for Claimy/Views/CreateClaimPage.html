@@ -207,9 +207,9 @@
             
 
             $.ajax({
-                url: "https://localhost:44324/api/TicketTables",
+                url: "https://localhost:44324/api/TicketCaseTables",
                 type: "POST",
-                dataType: "JSONJ",
+                dataType: "JSON",
                 data: JSON.stringify(ticketObj),
                 //type: should be same in server code, otherwise code will not run
                 ContentType: "application/json",

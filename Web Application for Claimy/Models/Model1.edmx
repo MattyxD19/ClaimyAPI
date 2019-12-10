@@ -1,0 +1,518 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DB_ClaimyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tbl_Claimy_Employee">
+          <Key>
+            <PropertyRef Name="fld_Email" />
+          </Key>
+          <Property Name="fld_Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fld_Name" Type="varchar" MaxLength="50" />
+          <Property Name="fld_Adress" Type="varchar" MaxLength="50" />
+          <Property Name="fld_Phone_No" Type="varchar" MaxLength="15" />
+          <Property Name="fld_Password" Type="varchar" MaxLength="25" />
+          <Property Name="fld_Country_Number" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_Country_List">
+          <Key>
+            <PropertyRef Name="fld_Number" />
+          </Key>
+          <Property Name="fld_Number" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fld_Country" Type="varchar" MaxLength="50" />
+          <Property Name="fld_ZipCode" Type="varchar" MaxLength="6" />
+          <Property Name="fld_City" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_Customer">
+          <Key>
+            <PropertyRef Name="fld_Email" />
+          </Key>
+          <Property Name="fld_Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fld_Name" Type="varchar" MaxLength="50" />
+          <Property Name="fld_Adress" Type="varchar" MaxLength="50" />
+          <Property Name="fld_Phone_No" Type="varchar" MaxLength="15" />
+          <Property Name="fld_Password" Type="varchar" MaxLength="25" />
+          <Property Name="fld_Country_Number" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_Image">
+          <Key>
+            <PropertyRef Name="fld_Image_ID" />
+          </Key>
+          <Property Name="fld_Image_ID" Type="int" Nullable="false" />
+          <Property Name="fld_image" Type="varbinary(max)" />
+          <Property Name="fld_Ticket_ID" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_Parking_Company">
+          <Key>
+            <PropertyRef Name="fld_CVRNR" />
+          </Key>
+          <Property Name="fld_CVRNR" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="fld_Name" Type="varchar" MaxLength="50" />
+          <Property Name="fld_Adress" Type="varchar" MaxLength="50" />
+          <Property Name="fld_Email" Type="varchar" MaxLength="50" />
+          <Property Name="fld_Phone_No" Type="varchar" MaxLength="15" />
+          <Property Name="fld_Contact_Person" Type="varchar" MaxLength="50" />
+          <Property Name="fld_Country_Number" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_Ticket_Case">
+          <Key>
+            <PropertyRef Name="fld_Case_Ticket_ID" />
+          </Key>
+          <Property Name="fld_Case_Ticket_ID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fld_ParkingFine_Reason" Type="varchar" MaxLength="50" />
+          <Property Name="fld_Precedens" Type="varchar" MaxLength="50" />
+          <Property Name="fld_Status" Type="varchar" MaxLength="25" />
+          <Property Name="fld_Law_Violation" Type="varchar" MaxLength="100" />
+          <Property Name="fld_tax_number" Type="varchar" MaxLength="30" />
+          <Property Name="fld_date_time" Type="datetime" />
+          <Property Name="fld_car_reg_no" Type="varchar" MaxLength="20" />
+          <Property Name="fld_parkingspace_id" Type="int" />
+          <Property Name="fld_traffic_warden_no" Type="int" />
+          <Property Name="fld_amount" Type="varchar" MaxLength="40" />
+          <Property Name="fld_payment_info" Type="varchar" MaxLength="50" />
+          <Property Name="fld_car_brand" Type="varchar" MaxLength="50" />
+          <Property Name="fld_CVRNumber" Type="varchar" MaxLength="10" />
+          <Property Name="fld_Customer_Email" Type="varchar" MaxLength="50" />
+          <Property Name="fld_EMP_ID" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK__tbl_Claim__fld_C__3F466844">
+          <End Role="tbl_Country_List" Type="Self.tbl_Country_List" Multiplicity="0..1" />
+          <End Role="tbl_Claimy_Employee" Type="Self.tbl_Claimy_Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Country_List">
+              <PropertyRef Name="fld_Number" />
+            </Principal>
+            <Dependent Role="tbl_Claimy_Employee">
+              <PropertyRef Name="fld_Country_Number" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_Custo__fld_C__3C69FB99">
+          <End Role="tbl_Country_List" Type="Self.tbl_Country_List" Multiplicity="0..1" />
+          <End Role="tbl_Customer" Type="Self.tbl_Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Country_List">
+              <PropertyRef Name="fld_Number" />
+            </Principal>
+            <Dependent Role="tbl_Customer">
+              <PropertyRef Name="fld_Country_Number" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_Image__fld_T__46E78A0C">
+          <End Role="tbl_Ticket_Case" Type="Self.tbl_Ticket_Case" Multiplicity="0..1" />
+          <End Role="tbl_Image" Type="Self.tbl_Image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Ticket_Case">
+              <PropertyRef Name="fld_Case_Ticket_ID" />
+            </Principal>
+            <Dependent Role="tbl_Image">
+              <PropertyRef Name="fld_Ticket_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_Parki__fld_C__398D8EEE">
+          <End Role="tbl_Country_List" Type="Self.tbl_Country_List" Multiplicity="0..1" />
+          <End Role="tbl_Parking_Company" Type="Self.tbl_Parking_Company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Country_List">
+              <PropertyRef Name="fld_Number" />
+            </Principal>
+            <Dependent Role="tbl_Parking_Company">
+              <PropertyRef Name="fld_Country_Number" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_Ticke__fld_C__4222D4EF">
+          <End Role="tbl_Parking_Company" Type="Self.tbl_Parking_Company" Multiplicity="0..1" />
+          <End Role="tbl_Ticket_Case" Type="Self.tbl_Ticket_Case" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Parking_Company">
+              <PropertyRef Name="fld_CVRNR" />
+            </Principal>
+            <Dependent Role="tbl_Ticket_Case">
+              <PropertyRef Name="fld_CVRNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_Ticke__fld_C__4316F928">
+          <End Role="tbl_Customer" Type="Self.tbl_Customer" Multiplicity="0..1" />
+          <End Role="tbl_Ticket_Case" Type="Self.tbl_Ticket_Case" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Customer">
+              <PropertyRef Name="fld_Email" />
+            </Principal>
+            <Dependent Role="tbl_Ticket_Case">
+              <PropertyRef Name="fld_Customer_Email" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_Ticke__fld_E__440B1D61">
+          <End Role="tbl_Claimy_Employee" Type="Self.tbl_Claimy_Employee" Multiplicity="0..1" />
+          <End Role="tbl_Ticket_Case" Type="Self.tbl_Ticket_Case" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Claimy_Employee">
+              <PropertyRef Name="fld_Email" />
+            </Principal>
+            <Dependent Role="tbl_Ticket_Case">
+              <PropertyRef Name="fld_EMP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DB_ClaimyModelStoreContainer">
+          <EntitySet Name="tbl_Claimy_Employee" EntityType="Self.tbl_Claimy_Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Country_List" EntityType="Self.tbl_Country_List" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Customer" EntityType="Self.tbl_Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Image" EntityType="Self.tbl_Image" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Parking_Company" EntityType="Self.tbl_Parking_Company" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Ticket_Case" EntityType="Self.tbl_Ticket_Case" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__tbl_Claim__fld_C__3F466844" Association="Self.FK__tbl_Claim__fld_C__3F466844">
+            <End Role="tbl_Country_List" EntitySet="tbl_Country_List" />
+            <End Role="tbl_Claimy_Employee" EntitySet="tbl_Claimy_Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_Custo__fld_C__3C69FB99" Association="Self.FK__tbl_Custo__fld_C__3C69FB99">
+            <End Role="tbl_Country_List" EntitySet="tbl_Country_List" />
+            <End Role="tbl_Customer" EntitySet="tbl_Customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_Image__fld_T__46E78A0C" Association="Self.FK__tbl_Image__fld_T__46E78A0C">
+            <End Role="tbl_Ticket_Case" EntitySet="tbl_Ticket_Case" />
+            <End Role="tbl_Image" EntitySet="tbl_Image" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_Parki__fld_C__398D8EEE" Association="Self.FK__tbl_Parki__fld_C__398D8EEE">
+            <End Role="tbl_Country_List" EntitySet="tbl_Country_List" />
+            <End Role="tbl_Parking_Company" EntitySet="tbl_Parking_Company" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_Ticke__fld_C__4222D4EF" Association="Self.FK__tbl_Ticke__fld_C__4222D4EF">
+            <End Role="tbl_Parking_Company" EntitySet="tbl_Parking_Company" />
+            <End Role="tbl_Ticket_Case" EntitySet="tbl_Ticket_Case" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_Ticke__fld_C__4316F928" Association="Self.FK__tbl_Ticke__fld_C__4316F928">
+            <End Role="tbl_Customer" EntitySet="tbl_Customer" />
+            <End Role="tbl_Ticket_Case" EntitySet="tbl_Ticket_Case" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_Ticke__fld_E__440B1D61" Association="Self.FK__tbl_Ticke__fld_E__440B1D61">
+            <End Role="tbl_Claimy_Employee" EntitySet="tbl_Claimy_Employee" />
+            <End Role="tbl_Ticket_Case" EntitySet="tbl_Ticket_Case" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB_ClaimyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tbl_Claimy_Employee">
+          <Key>
+            <PropertyRef Name="fld_Email" />
+          </Key>
+          <Property Name="fld_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fld_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fld_Adress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fld_Phone_No" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="fld_Password" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="fld_Country_Number" Type="Int32" />
+          <NavigationProperty Name="tbl_Country_List" Relationship="Self.FK__tbl_Claim__fld_C__3F466844" FromRole="tbl_Claimy_Employee" ToRole="tbl_Country_List" />
+          <NavigationProperty Name="tbl_Ticket_Case" Relationship="Self.FK__tbl_Ticke__fld_E__440B1D61" FromRole="tbl_Claimy_Employee" ToRole="tbl_Ticket_Case" />
+        </EntityType>
+        <EntityType Name="tbl_Country_List">
+          <Key>
+            <PropertyRef Name="fld_Number" />
+          </Key>
+          <Property Name="fld_Number" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fld_Country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fld_ZipCode" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="fld_City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tbl_Claimy_Employee" Relationship="Self.FK__tbl_Claim__fld_C__3F466844" FromRole="tbl_Country_List" ToRole="tbl_Claimy_Employee" />
+          <NavigationProperty Name="tbl_Customer" Relationship="Self.FK__tbl_Custo__fld_C__3C69FB99" FromRole="tbl_Country_List" ToRole="tbl_Customer" />
+          <NavigationProperty Name="tbl_Parking_Company" Relationship="Self.FK__tbl_Parki__fld_C__398D8EEE" FromRole="tbl_Country_List" ToRole="tbl_Parking_Company" />
+        </EntityType>
+        <EntityType Name="tbl_Customer">
+          <Key>
+            <PropertyRef Name="fld_Email" />
+          </Key>
+          <Property Name="fld_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fld_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fld_Adress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fld_Phone_No" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="fld_Password" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="fld_Country_Number" Type="Int32" />
+          <NavigationProperty Name="tbl_Country_List" Relationship="Self.FK__tbl_Custo__fld_C__3C69FB99" FromRole="tbl_Customer" ToRole="tbl_Country_List" />
+          <NavigationProperty Name="tbl_Ticket_Case" Relationship="Self.FK__tbl_Ticke__fld_C__4316F928" FromRole="tbl_Customer" ToRole="tbl_Ticket_Case" />
+        </EntityType>
+        <EntityType Name="tbl_Image">
+          <Key>
+            <PropertyRef Name="fld_Image_ID" />
+          </Key>
+          <Property Name="fld_Image_ID" Type="Int32" Nullable="false" />
+          <Property Name="fld_image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="fld_Ticket_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tbl_Ticket_Case" Relationship="Self.FK__tbl_Image__fld_T__46E78A0C" FromRole="tbl_Image" ToRole="tbl_Ticket_Case" />
+        </EntityType>
+        <EntityType Name="tbl_Parking_Company">
+          <Key>
+            <PropertyRef Name="fld_CVRNR" />
+          </Key>
+          <Property Name="fld_CVRNR" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fld_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fld_Adress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fld_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fld_Phone_No" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="fld_Contact_Person" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fld_Country_Number" Type="Int32" />
+          <NavigationProperty Name="tbl_Country_List" Relationship="Self.FK__tbl_Parki__fld_C__398D8EEE" FromRole="tbl_Parking_Company" ToRole="tbl_Country_List" />
+          <NavigationProperty Name="tbl_Ticket_Case" Relationship="Self.FK__tbl_Ticke__fld_C__4222D4EF" FromRole="tbl_Parking_Company" ToRole="tbl_Ticket_Case" />
+        </EntityType>
+        <EntityType Name="tbl_Ticket_Case">
+          <Key>
+            <PropertyRef Name="fld_Case_Ticket_ID" />
+          </Key>
+          <Property Name="fld_Case_Ticket_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fld_ParkingFine_Reason" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fld_Precedens" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fld_Status" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="fld_Law_Violation" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="fld_tax_number" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="fld_date_time" Type="DateTime" Precision="3" />
+          <Property Name="fld_car_reg_no" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="fld_parkingspace_id" Type="Int32" />
+          <Property Name="fld_traffic_warden_no" Type="Int32" />
+          <Property Name="fld_amount" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="fld_payment_info" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fld_car_brand" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fld_CVRNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="fld_Customer_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fld_EMP_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tbl_Claimy_Employee" Relationship="Self.FK__tbl_Ticke__fld_E__440B1D61" FromRole="tbl_Ticket_Case" ToRole="tbl_Claimy_Employee" />
+          <NavigationProperty Name="tbl_Customer" Relationship="Self.FK__tbl_Ticke__fld_C__4316F928" FromRole="tbl_Ticket_Case" ToRole="tbl_Customer" />
+          <NavigationProperty Name="tbl_Image" Relationship="Self.FK__tbl_Image__fld_T__46E78A0C" FromRole="tbl_Ticket_Case" ToRole="tbl_Image" />
+          <NavigationProperty Name="tbl_Parking_Company" Relationship="Self.FK__tbl_Ticke__fld_C__4222D4EF" FromRole="tbl_Ticket_Case" ToRole="tbl_Parking_Company" />
+        </EntityType>
+        <Association Name="FK__tbl_Claim__fld_C__3F466844">
+          <End Role="tbl_Country_List" Type="Self.tbl_Country_List" Multiplicity="0..1" />
+          <End Role="tbl_Claimy_Employee" Type="Self.tbl_Claimy_Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Country_List">
+              <PropertyRef Name="fld_Number" />
+            </Principal>
+            <Dependent Role="tbl_Claimy_Employee">
+              <PropertyRef Name="fld_Country_Number" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_Ticke__fld_E__440B1D61">
+          <End Role="tbl_Claimy_Employee" Type="Self.tbl_Claimy_Employee" Multiplicity="0..1" />
+          <End Role="tbl_Ticket_Case" Type="Self.tbl_Ticket_Case" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Claimy_Employee">
+              <PropertyRef Name="fld_Email" />
+            </Principal>
+            <Dependent Role="tbl_Ticket_Case">
+              <PropertyRef Name="fld_EMP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_Custo__fld_C__3C69FB99">
+          <End Role="tbl_Country_List" Type="Self.tbl_Country_List" Multiplicity="0..1" />
+          <End Role="tbl_Customer" Type="Self.tbl_Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Country_List">
+              <PropertyRef Name="fld_Number" />
+            </Principal>
+            <Dependent Role="tbl_Customer">
+              <PropertyRef Name="fld_Country_Number" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_Parki__fld_C__398D8EEE">
+          <End Role="tbl_Country_List" Type="Self.tbl_Country_List" Multiplicity="0..1" />
+          <End Role="tbl_Parking_Company" Type="Self.tbl_Parking_Company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Country_List">
+              <PropertyRef Name="fld_Number" />
+            </Principal>
+            <Dependent Role="tbl_Parking_Company">
+              <PropertyRef Name="fld_Country_Number" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_Ticke__fld_C__4316F928">
+          <End Role="tbl_Customer" Type="Self.tbl_Customer" Multiplicity="0..1" />
+          <End Role="tbl_Ticket_Case" Type="Self.tbl_Ticket_Case" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Customer">
+              <PropertyRef Name="fld_Email" />
+            </Principal>
+            <Dependent Role="tbl_Ticket_Case">
+              <PropertyRef Name="fld_Customer_Email" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_Image__fld_T__46E78A0C">
+          <End Role="tbl_Ticket_Case" Type="Self.tbl_Ticket_Case" Multiplicity="0..1" />
+          <End Role="tbl_Image" Type="Self.tbl_Image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Ticket_Case">
+              <PropertyRef Name="fld_Case_Ticket_ID" />
+            </Principal>
+            <Dependent Role="tbl_Image">
+              <PropertyRef Name="fld_Ticket_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_Ticke__fld_C__4222D4EF">
+          <End Role="tbl_Parking_Company" Type="Self.tbl_Parking_Company" Multiplicity="0..1" />
+          <End Role="tbl_Ticket_Case" Type="Self.tbl_Ticket_Case" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Parking_Company">
+              <PropertyRef Name="fld_CVRNR" />
+            </Principal>
+            <Dependent Role="tbl_Ticket_Case">
+              <PropertyRef Name="fld_CVRNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DB_ClaimyEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tbl_Claimy_Employee" EntityType="Self.tbl_Claimy_Employee" />
+          <EntitySet Name="tbl_Country_List" EntityType="Self.tbl_Country_List" />
+          <EntitySet Name="tbl_Customer" EntityType="Self.tbl_Customer" />
+          <EntitySet Name="tbl_Image" EntityType="Self.tbl_Image" />
+          <EntitySet Name="tbl_Parking_Company" EntityType="Self.tbl_Parking_Company" />
+          <EntitySet Name="tbl_Ticket_Case" EntityType="Self.tbl_Ticket_Case" />
+          <AssociationSet Name="FK__tbl_Claim__fld_C__3F466844" Association="Self.FK__tbl_Claim__fld_C__3F466844">
+            <End Role="tbl_Country_List" EntitySet="tbl_Country_List" />
+            <End Role="tbl_Claimy_Employee" EntitySet="tbl_Claimy_Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_Ticke__fld_E__440B1D61" Association="Self.FK__tbl_Ticke__fld_E__440B1D61">
+            <End Role="tbl_Claimy_Employee" EntitySet="tbl_Claimy_Employee" />
+            <End Role="tbl_Ticket_Case" EntitySet="tbl_Ticket_Case" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_Custo__fld_C__3C69FB99" Association="Self.FK__tbl_Custo__fld_C__3C69FB99">
+            <End Role="tbl_Country_List" EntitySet="tbl_Country_List" />
+            <End Role="tbl_Customer" EntitySet="tbl_Customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_Parki__fld_C__398D8EEE" Association="Self.FK__tbl_Parki__fld_C__398D8EEE">
+            <End Role="tbl_Country_List" EntitySet="tbl_Country_List" />
+            <End Role="tbl_Parking_Company" EntitySet="tbl_Parking_Company" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_Ticke__fld_C__4316F928" Association="Self.FK__tbl_Ticke__fld_C__4316F928">
+            <End Role="tbl_Customer" EntitySet="tbl_Customer" />
+            <End Role="tbl_Ticket_Case" EntitySet="tbl_Ticket_Case" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_Image__fld_T__46E78A0C" Association="Self.FK__tbl_Image__fld_T__46E78A0C">
+            <End Role="tbl_Ticket_Case" EntitySet="tbl_Ticket_Case" />
+            <End Role="tbl_Image" EntitySet="tbl_Image" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_Ticke__fld_C__4222D4EF" Association="Self.FK__tbl_Ticke__fld_C__4222D4EF">
+            <End Role="tbl_Parking_Company" EntitySet="tbl_Parking_Company" />
+            <End Role="tbl_Ticket_Case" EntitySet="tbl_Ticket_Case" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DB_ClaimyModelStoreContainer" CdmEntityContainer="DB_ClaimyEntities1">
+          <EntitySetMapping Name="tbl_Claimy_Employee">
+            <EntityTypeMapping TypeName="DB_ClaimyModel.tbl_Claimy_Employee">
+              <MappingFragment StoreEntitySet="tbl_Claimy_Employee">
+                <ScalarProperty Name="fld_Email" ColumnName="fld_Email" />
+                <ScalarProperty Name="fld_Name" ColumnName="fld_Name" />
+                <ScalarProperty Name="fld_Adress" ColumnName="fld_Adress" />
+                <ScalarProperty Name="fld_Phone_No" ColumnName="fld_Phone_No" />
+                <ScalarProperty Name="fld_Password" ColumnName="fld_Password" />
+                <ScalarProperty Name="fld_Country_Number" ColumnName="fld_Country_Number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Country_List">
+            <EntityTypeMapping TypeName="DB_ClaimyModel.tbl_Country_List">
+              <MappingFragment StoreEntitySet="tbl_Country_List">
+                <ScalarProperty Name="fld_Number" ColumnName="fld_Number" />
+                <ScalarProperty Name="fld_Country" ColumnName="fld_Country" />
+                <ScalarProperty Name="fld_ZipCode" ColumnName="fld_ZipCode" />
+                <ScalarProperty Name="fld_City" ColumnName="fld_City" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Customer">
+            <EntityTypeMapping TypeName="DB_ClaimyModel.tbl_Customer">
+              <MappingFragment StoreEntitySet="tbl_Customer">
+                <ScalarProperty Name="fld_Email" ColumnName="fld_Email" />
+                <ScalarProperty Name="fld_Name" ColumnName="fld_Name" />
+                <ScalarProperty Name="fld_Adress" ColumnName="fld_Adress" />
+                <ScalarProperty Name="fld_Phone_No" ColumnName="fld_Phone_No" />
+                <ScalarProperty Name="fld_Password" ColumnName="fld_Password" />
+                <ScalarProperty Name="fld_Country_Number" ColumnName="fld_Country_Number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Image">
+            <EntityTypeMapping TypeName="DB_ClaimyModel.tbl_Image">
+              <MappingFragment StoreEntitySet="tbl_Image">
+                <ScalarProperty Name="fld_Image_ID" ColumnName="fld_Image_ID" />
+                <ScalarProperty Name="fld_image" ColumnName="fld_image" />
+                <ScalarProperty Name="fld_Ticket_ID" ColumnName="fld_Ticket_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Parking_Company">
+            <EntityTypeMapping TypeName="DB_ClaimyModel.tbl_Parking_Company">
+              <MappingFragment StoreEntitySet="tbl_Parking_Company">
+                <ScalarProperty Name="fld_CVRNR" ColumnName="fld_CVRNR" />
+                <ScalarProperty Name="fld_Name" ColumnName="fld_Name" />
+                <ScalarProperty Name="fld_Adress" ColumnName="fld_Adress" />
+                <ScalarProperty Name="fld_Email" ColumnName="fld_Email" />
+                <ScalarProperty Name="fld_Phone_No" ColumnName="fld_Phone_No" />
+                <ScalarProperty Name="fld_Contact_Person" ColumnName="fld_Contact_Person" />
+                <ScalarProperty Name="fld_Country_Number" ColumnName="fld_Country_Number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Ticket_Case">
+            <EntityTypeMapping TypeName="DB_ClaimyModel.tbl_Ticket_Case">
+              <MappingFragment StoreEntitySet="tbl_Ticket_Case">
+                <ScalarProperty Name="fld_Case_Ticket_ID" ColumnName="fld_Case_Ticket_ID" />
+                <ScalarProperty Name="fld_ParkingFine_Reason" ColumnName="fld_ParkingFine_Reason" />
+                <ScalarProperty Name="fld_Precedens" ColumnName="fld_Precedens" />
+                <ScalarProperty Name="fld_Status" ColumnName="fld_Status" />
+                <ScalarProperty Name="fld_Law_Violation" ColumnName="fld_Law_Violation" />
+                <ScalarProperty Name="fld_tax_number" ColumnName="fld_tax_number" />
+                <ScalarProperty Name="fld_date_time" ColumnName="fld_date_time" />
+                <ScalarProperty Name="fld_car_reg_no" ColumnName="fld_car_reg_no" />
+                <ScalarProperty Name="fld_parkingspace_id" ColumnName="fld_parkingspace_id" />
+                <ScalarProperty Name="fld_traffic_warden_no" ColumnName="fld_traffic_warden_no" />
+                <ScalarProperty Name="fld_amount" ColumnName="fld_amount" />
+                <ScalarProperty Name="fld_payment_info" ColumnName="fld_payment_info" />
+                <ScalarProperty Name="fld_car_brand" ColumnName="fld_car_brand" />
+                <ScalarProperty Name="fld_CVRNumber" ColumnName="fld_CVRNumber" />
+                <ScalarProperty Name="fld_Customer_Email" ColumnName="fld_Customer_Email" />
+                <ScalarProperty Name="fld_EMP_ID" ColumnName="fld_EMP_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

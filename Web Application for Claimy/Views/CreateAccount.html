@@ -131,18 +131,14 @@
             https://localhost:44324
 
             $.ajax({
-                url: "https://localhost:44324/api/CustomerTable",
-                type: "POST",
-                dataType: "JSON",
+                tradiotinal: true,
+                url: 'https://localhost:44324/api/fld_Customer',
+                type: 'POST',
+                dataType: 'application/JSON',
                 data: JSON.stringify(accountObj),
                 //type: should be same in server code, otherwise code will not run
-                ContentType: "application/json",
-                success: function (response) {
-                    alert(JSON.stringify(response));
-                },
-                error: function (err) {
-                    alert(JSON.stringify(err));
-                }
+                ContentType: "JSON",
+                
             });
 
             console.log(JSON.stringify(accountObj));
