@@ -81,18 +81,36 @@
 
     <!--Scripts-->
     <script>
-         var loginOBj = new Object();
-        document.getElementById("Login").onclick = function () {
-            var user = document.getElementById("InputUsername");
-            var password = document.getElementById("InputPassword");
-            loginOBj.user = user;
-            loginOBj.password = password;
+        document.getElementById("Login").onclick(function () {
 
-            console.log(JSON.stringify(loginOBj));
+        var fld_Email = document.getElementById("InputUsername");
+        var fld_Password = document.getElementById("InputPassword");
+
+
+        request.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+                console.log(this.responseText);
+            }
         };
 
-        $.ajax({
-            url: '/api/'
+        var url = "https://localhost:44324/api/tbl_Customer/" + fld_Email;
+        xhr.open("GET", url, true);
+        request.send();
+}        
+
+            xhr = new XMLHttpRequest();
+            
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.onreadystatechange = function () { 
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                var json = JSON.parse(xhr.responseText);
+                window.alert("User created succesfully");
+                }
+            }
+
+            var data = JSON.stringify(accountObj);
+            xhr.send(data);
+
         });
     </script>
 

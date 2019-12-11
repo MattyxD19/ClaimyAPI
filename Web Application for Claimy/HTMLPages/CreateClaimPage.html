@@ -190,7 +190,6 @@
             var carBrand = document.getElementById("CarBrandBox");
             var CVR = document.getElementById("CVRNumberBox");
 
-
             ticketObj.fld_Ticket_ID = ticketID;
             ticketObj.fld_Law_Violation = violation;
             ticketObj.fld_tax_number = taxNumber;
@@ -204,23 +203,19 @@
             ticketObj.fld_CVRNumber = CVR;
             ticketObj.fld_Customer_ID = 1;
 
-            
-
-            $.ajax({
-                url: "https://localhost:44324/api/TicketCaseTables",
-                type: "POST",
-                dataType: "JSON",
-                data: JSON.stringify(ticketObj),
-                //type: should be same in server code, otherwise code will not run
-                ContentType: "application/json",
-                success: function (response) {
-                    alert(JSON.stringify(response));
-                },
-                error: function (err) {
-                    alert(JSON.stringify(err));
+            xhr = new XMLHttpRequest();
+            var url = "https://localhost:44324/api/TicketCaseTables";
+            xhr.open("POST", url, true);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.onreadystatechange = function () { 
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                    var json = JSON.parse(xhr.responseText);
+                    console.log(json.email + ", " + json.name)
                 }
-            });
-           
+            }
+
+            var data = JSON.stringify(ticketObj);
+            xhr.send(data);
 
             console.log(JSON.stringify(ticketObj));
 

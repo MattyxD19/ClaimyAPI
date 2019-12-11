@@ -9,13 +9,13 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
-using Web_Application_for_Claimy.Models;
+using Web_Application_for_Claimy.EF;
 
 namespace Web_Application_for_Claimy.Controllers
 {
     public class tbl_Claimy_EmployeeController : ApiController
     {
-        private DB_ClaimyEntities1 db = new DB_ClaimyEntities1();
+        private Entities db = new Entities();
 
         // GET: api/tbl_Claimy_Employee
         public IQueryable<tbl_Claimy_Employee> Gettbl_Claimy_Employee()

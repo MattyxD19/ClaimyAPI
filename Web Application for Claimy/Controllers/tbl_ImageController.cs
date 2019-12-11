@@ -9,13 +9,13 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
-using Web_Application_for_Claimy.Models;
+using Web_Application_for_Claimy.EF;
 
 namespace Web_Application_for_Claimy.Controllers
 {
     public class tbl_ImageController : ApiController
     {
-        private DB_ClaimyEntities1 db = new DB_ClaimyEntities1();
+        private Entities db = new Entities();
 
         // GET: api/tbl_Image
         public IQueryable<tbl_Image> Gettbl_Image()

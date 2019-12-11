@@ -1,5 +1,4 @@
 using System.Web.Http;
-using System.Data.Entity;
 
 namespace Web_Application_for_Claimy
 {
@@ -13,7 +12,6 @@ namespace Web_Application_for_Claimy
                 .ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
             GlobalConfiguration.Configuration.Formatters
                 .Remove(GlobalConfiguration.Configuration.Formatters.XmlFormatter);
-
         }
     }
 }

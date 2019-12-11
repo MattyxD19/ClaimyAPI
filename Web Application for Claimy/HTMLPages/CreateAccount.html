@@ -116,30 +116,31 @@
             var adress = document.getElementById('InputAdress').value;
             var zipcode = document.getElementById('InputZipcode').value;
             var phonenumber = document.getElementById('InputPhone').value;
-            var country = document.getElementById('InputCountry').value;
+            //var country = document.getElementById('InputCountry').value;
 
             var accountObj = new Object();
 
-            accountObj.name = name;
-            accountObj.adress = adress;
-            accountObj.email = email;
-            accountObj.phonenumber = phonenumber;
-            accountObj.password = password;
-            accountObj.country = country;
-            accountObj.zipcode = zipcode;
+            accountObj.fld_Email = email;
+            accountObj.fld_Name = name;
+            accountObj.fld_Adress = adress;
+            accountObj.fld_Phone_No = phonenumber;
+            accountObj.fld_Password = password;
+            accountObj.fld_Country_Number = 1; //should be "1" since the database only accepts integers and "Denmark" is the only available country
+            
 
-            https://localhost:44324
+            xhr = new XMLHttpRequest();
+            var url = "https://localhost:44324/api/tbl_Customer";
+            xhr.open("POST", url, true);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.onreadystatechange = function () { 
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                var json = JSON.parse(xhr.responseText);
+                window.alert("User created succesfully");
+                }
+            }
 
-            $.ajax({
-                tradiotinal: true,
-                url: 'https://localhost:44324/api/fld_Customer',
-                type: 'POST',
-                dataType: 'application/JSON',
-                data: JSON.stringify(accountObj),
-                //type: should be same in server code, otherwise code will not run
-                ContentType: "JSON",
-                
-            });
+            var data = JSON.stringify(accountObj);
+            xhr.send(data);
 
             console.log(JSON.stringify(accountObj));
 

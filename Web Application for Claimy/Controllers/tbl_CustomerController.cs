@@ -9,13 +9,13 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
-using Web_Application_for_Claimy.Models;
+using Web_Application_for_Claimy.EF;
 
 namespace Web_Application_for_Claimy.Controllers
 {
     public class tbl_CustomerController : ApiController
     {
-        private DB_ClaimyEntities1 db = new DB_ClaimyEntities1();
+        private Entities db = new Entities();
 
         // GET: api/tbl_Customer
         public IQueryable<tbl_Customer> Gettbl_Customer()
@@ -33,6 +33,7 @@ namespace Web_Application_for_Claimy.Controllers
                 return NotFound();
             }
 
+            Console.WriteLine(tbl_Customer.fld_Email);
             return Ok(tbl_Customer);
         }
 

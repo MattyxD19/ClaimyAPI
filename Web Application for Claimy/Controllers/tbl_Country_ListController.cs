@@ -9,16 +9,15 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
-using Web_Application_for_Claimy.Models;
+using Web_Application_for_Claimy.EF;
 
 namespace Web_Application_for_Claimy.Controllers
 {
     public class tbl_Country_ListController : ApiController
     {
-        private DB_ClaimyEntities1 db = new DB_ClaimyEntities1();
+        private Entities db = new Entities();
 
         // GET: api/tbl_Country_List
-        [Route("api/tbl_Country_List")]
         public IQueryable<tbl_Country_List> Gettbl_Country_List()
         {
             return db.tbl_Country_List;
@@ -26,7 +25,6 @@ namespace Web_Application_for_Claimy.Controllers
 
         // GET: api/tbl_Country_List/5
         [ResponseType(typeof(tbl_Country_List))]
-        [Route("api/tbl_Country_List")]
         public async Task<IHttpActionResult> Gettbl_Country_List(int id)
         {
             tbl_Country_List tbl_Country_List = await db.tbl_Country_List.FindAsync(id);
@@ -40,7 +38,6 @@ namespace Web_Application_for_Claimy.Controllers
 
         // PUT: api/tbl_Country_List/5
         [ResponseType(typeof(void))]
-        [Route("api/tbl_Country_List")]
         public async Task<IHttpActionResult> Puttbl_Country_List(int id, tbl_Country_List tbl_Country_List)
         {
             if (!ModelState.IsValid)
@@ -76,7 +73,6 @@ namespace Web_Application_for_Claimy.Controllers
 
         // POST: api/tbl_Country_List
         [ResponseType(typeof(tbl_Country_List))]
-        [Route("api/tbl_Country_List")]
         public async Task<IHttpActionResult> Posttbl_Country_List(tbl_Country_List tbl_Country_List)
         {
             if (!ModelState.IsValid)
@@ -92,7 +88,6 @@ namespace Web_Application_for_Claimy.Controllers
 
         // DELETE: api/tbl_Country_List/5
         [ResponseType(typeof(tbl_Country_List))]
-        [Route("api/tbl_Country_List")]
         public async Task<IHttpActionResult> Deletetbl_Country_List(int id)
         {
             tbl_Country_List tbl_Country_List = await db.tbl_Country_List.FindAsync(id);
