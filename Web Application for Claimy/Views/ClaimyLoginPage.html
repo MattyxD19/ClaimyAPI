@@ -81,37 +81,28 @@
 
     <!--Scripts-->
     <script>
-        document.getElementById("Login").onclick(function () {
+        document.getElementById("Login").onclick = function($) {
 
-        var fld_Email = document.getElementById("InputUsername");
-        var fld_Password = document.getElementById("InputPassword");
+            var fld_Email = document.getElementById("InputUsername");
+            var fld_Password = document.getElementById("InputPassword");
 
+            var url = "https://localhost:44324/api/tbl_Customer?" + fld_Email;
 
-        request.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-                console.log(this.responseText);
-            }
-        };
+            var xmlhttp = new XMLHttpRequest();
 
-        var url = "https://localhost:44324/api/tbl_Customer/" + fld_Email;
-        xhr.open("GET", url, true);
-        request.send();
-}        
+            xmlhttp.onreadystatechange = function() {
+              if (this.readyState == 4 && this.status == 200) {
+                  var myArr = JSON.parse(this.responseText);
+                  console.log(myArr);
+              }
+            };
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send(); 
 
-            xhr = new XMLHttpRequest();
             
-            xhr.setRequestHeader("Content-type", "application/json");
-            xhr.onreadystatechange = function () { 
-            if (xhr.readyState == 4 && xhr.status == 200) {
-                var json = JSON.parse(xhr.responseText);
-                window.alert("User created succesfully");
-                }
-            }
 
-            var data = JSON.stringify(accountObj);
-            xhr.send(data);
-
-        });
+        };
+        
     </script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

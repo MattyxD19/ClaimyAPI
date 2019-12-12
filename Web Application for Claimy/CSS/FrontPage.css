@@ -1,7 +1,10 @@
 ﻿body {
-    background-image: url('../Resources/Claimy_Logo_OG.png');
+    /*background-image: linear-gradient(#537DA6, white);
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat;*/
+    height: 100%;
+    margin: 0;
+    overflow-x: hidden;
 }
 
 #header {
@@ -9,4 +12,180 @@
 
 .navbar, navbar-expand-lg, navbar-light, bg-light {
     background-color: #537DA6 !important;
+}
+
+/*.box {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+}
+.box .row.content {
+  flex: 1 1 auto;
+}*/
+
+.content {
+    background-color: transparent;
+}
+
+.responsiveIMG {
+    height: auto;
+    width: 100%;
+    max-width: 2560px;
+    opacity: 0.8;
+}
+
+.WelcomePage {
+    height: auto;
+    width: 100%;
+    min-width: 500px;
+    text-align: center;
+}
+
+.HowClaimyWorksPage {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.WhatClaimyChargesPage {
+    height: auto;
+    width: 100%;
+    text-align: center;
+    background-color: #537DA6;
+    border-radius: 50px;
+    margin: 0 auto;
+    padding: 300px 20px 300px 20px;
+}
+
+.TrustPilotPage {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 100px 0px 100px 0px;
+}
+
+.container {
+    width: 100%;
+    height: auto;
+}
+
+.container-imageStyling {
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    min-width: 500px;
+    max-width: 2560px;
+}
+
+.centeredHeadlineText {
+    color: #537DA6;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3vw;
+    font-weight: bold;
+    border: 2px solid #537DA6;
+    padding: 5px;
+    border-radius: 25px;
+    background-color: white;
+}
+
+.centeredText {
+    color: #537DA6;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5vw;
+    font-weight: bold;
+    border: 2px solid #537DA6;
+    padding: 5px;
+    border-radius: 25px;
+    background-color: white;
+}
+
+.redirectToCreateAccountButton {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px 20px;
+    text-align: center;
+    background-color: white;
+    color: #537DA6;
+    font-weight: bold;
+    font-size: 1.5vw;
+    border: solid;
+    border-radius: 12px;
+    border-color: #537DA6;
+}
+
+    .redirectToCreateAccountButton:hover {
+        background-color: #537DA6;
+        color: white;
+    }
+
+.img-with-text {
+    text-align: justify;
+    width: 200px;
+    align-content: center;
+    padding: 15px;
+}
+
+    .img-with-text img {
+        display: block;
+        margin: 0 auto;
+        width: 200px;
+    }
+
+.HowClaimyWorksImages {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+    width: 180px;
+}
+
+.ImageParagraphs {
+    color: #537DA6;
+    font-size: 2vh;
+    font-weight: bold;
+    text-align: left;
+}
+
+.CostParagraphs {
+    color: white;
+    font-size: 2vh;
+    font-weight: bold;
+    text-align: center;
+}
+
+.HowClaimyWorksHeadline {
+    color: #537DA6;
+    font-size: 3vh;
+    font-weight: bold;
+    padding-bottom: 50px;
+}
+
+.WhatClaimyChargesHeadline {
+    color: white;
+    font-size: 3vh;
+    font-weight: bold;
+}
+
+.vertical-center {
+    min-height: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+}
+
+.container-trustPilot {
+    padding: 100px 0px 100px 0px;
 }

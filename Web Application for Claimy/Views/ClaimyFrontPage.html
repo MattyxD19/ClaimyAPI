@@ -8,6 +8,9 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../CSS/FrontPage.css"/>
+
     <!--icons-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -21,10 +24,88 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="AboutUsPage.html" style="color:white; list-style: none; margin: 15px; ">about us</a></li>
                 <li><a href="CreateAccount.html" style="color: white; list-style: none; margin: 15px;"><i class="fa fa-user"></i> Sign Up</a></li>
-                <li><a href="ClaimyLoginPage.html" style="color: white; list-style: none; margin: 15px; "><i class="fa fa-lock"></i> Login</a></li>
+                <li><a href="loginForm1.html" style="color: white; list-style: none; margin: 15px; "><i class="fa fa-lock"></i> Login</a></li>
             </ul>
         </div>
     </nav>
+
+
+    <!-- TODO: TILFØJ FUNKTIONALITET TIL DEN SATANS KNAP VED NAVN "redirectToCreateAccountButton" NU! -->
+    <!-- First thing you see when you load the page - picture with some delicious text n' buttons -->
+    <div class="WelcomePage">
+        <div class="container-imageStyling">
+            <img src="../Resources/frontpagepicture.png" alt="Claimy Frontpage Picture" class="responsiveIMG" style="width: 100%;" />
+            <div class="centeredHeadlineText">Har du fået en parkeringsbøde?</div>
+            <div class="centeredText">Claimy er appen der hjælper dig med uretskafne bøder.</div>
+            <button type="button" class="redirectToCreateAccountButton">Start her</button>
+        </div>
+    </div>
+
+
+    <!-- How claimy works slide -->
+    <div class="HowClaimyWorksPage">
+        <div class="jumbotron vertical-center">
+            <div class="container">
+                <div class="HowClaimyWorksHeadline">Sådan virker Claimy</div>
+                <div class="row">
+                    <div class="col text-center">
+                        <div class="img-with-text">
+                            <img src="../Resources/snapshot.png" alt="SnapAPhoto.png" class="HowClaimyWorksImages" />
+                            <p class="ImageParagraphs">Tag et billede af din parkering samt af bøden.</p>
+                        </div>
+                    </div>
+                    <div class="col text-center">
+                        <div class="img-with-text">
+                            <img src="../Resources/Formula.png" alt="Formula.png" class="HowClaimyWorksImages" />
+                            <p class="ImageParagraphs">Udfyld en formular med nødvendige informationer.</p>
+                        </div>
+                    </div>
+                    <div class="col text-center">
+                        <div class="img-with-text">
+                            <img src="../Resources/Jurist.png" alt="Jurist.png" class="HowClaimyWorksImages" />
+                            <p class="ImageParagraphs">Herfra tager vore dygtige jurister et kig på sagen.</p>
+                        </div>
+                    </div>
+                    <div class="col text-center">
+                        <div class="img-with-text">
+                            <img src="../Resources/Money.png" alt="Money.png" class="HowClaimyWorksImages" />
+                            <p class="ImageParagraphs">Hvis sagen bliver vundet - sparer du penge.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- How much claimy charges slide -->
+    <div class="WhatClaimyChargesPage">
+        <div class="row justify-content-md-center">
+            <div class="col col-lg-2"></div>
+            <div class="col-md-auto">
+                <div class="container container-special">
+                    <div class="WhatClaimyChargesHeadline">Hvad koster det?</div>
+                    <p class="CostParagraphs">Her hos Claimy mener vi ikke at betaling er nødvendigt, hvis vi ikke kan vinde sagen for dig - derfor får du muligheden for at indsende din bøde uden det koster en krone selv i tilfælde at vore jurister kan se at sagen ikke kan vindes. Der bedes først om betaling, hvis bliver vundet og selv der kræver vi blot 33% af det fulde beløb bøden var på.</p>
+                </div>
+            </div>
+            <div class="col col-lg-2"></div>
+        </div>
+    </div>
+
+
+    <!-- Trust Pilot slide -->
+    <!--div class="TrustPilotPage">
+        <div class="row justify-content-md-center">
+            <div class="col col-lg-2"></div>
+            <div class="col-md-auto">
+                <div class="container container-trustPilot">
+                    <!--img src="../Resources/TrustPilotDummy.png" /-->
+                </div>
+            </div>
+            <div class="col col-lg-2"></div>
+        </div>
+    </div>
+
 
     <!--Social media footer-->
     <div class="container-fluid col-8 offset-2">
@@ -35,6 +116,7 @@
                     <a href="https://www.facebook.com/Claimy-112382550242297/" title="Følg os på Facebook">
                         <i class="fa fa-facebook" style="font-size:36px"></i>
                     </a>
+
                 </li>
             </ul>
             <ul class="list-group col-8 offset-2 container-fluid ">
@@ -45,6 +127,7 @@
             </ul>
         </div>
     </div>
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
