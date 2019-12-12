@@ -322,12 +322,12 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\ReadFileClaimy.js" />
-    <Content Include="HTMLPages\AboutUsPage.html" />
-    <Content Include="HTMLPages\ClaimyLoginPage.html" />
-    <Content Include="HTMLPages\CreateClaimPage.html" />
-    <Content Include="HTMLPages\CustomerPage.html" />
-    <Content Include="HTMLPages\Footer.html" />
-    <Content Include="HTMLPages\NavigationBar.html" />
+    <Content Include="Views\AboutUsPage.html" />
+    <Content Include="Views\ClaimyLoginPage.html" />
+    <Content Include="Views\CreateClaimPage.html" />
+    <Content Include="Views\CustomerPage.html" />
+    <Content Include="Views\Footer.html" />
+    <Content Include="Views\NavigationBar.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -341,13 +341,13 @@
     <Compile Include="Controllers\tbl_ImageController.cs" />
     <Compile Include="Controllers\tbl_Parking_CompanyController.cs" />
     <Compile Include="Controllers\tbl_Ticket_CaseController.cs" />
-    <Compile Include="EF\Entities.cs" />
-    <Compile Include="EF\tbl_Claimy_Employee.cs" />
-    <Compile Include="EF\tbl_Country_List.cs" />
-    <Compile Include="EF\tbl_Customer.cs" />
-    <Compile Include="EF\tbl_Image.cs" />
-    <Compile Include="EF\tbl_Parking_Company.cs" />
-    <Compile Include="EF\tbl_Ticket_Case.cs" />
+    <Compile Include="Models\Entities.cs" />
+    <Compile Include="Models\tbl_Claimy_Employee.cs" />
+    <Compile Include="Models\tbl_Country_List.cs" />
+    <Compile Include="Models\tbl_Customer.cs" />
+    <Compile Include="Models\tbl_Image.cs" />
+    <Compile Include="Models\tbl_Parking_Company.cs" />
+    <Compile Include="Models\tbl_Ticket_Case.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -365,12 +365,12 @@
     <Content Include="javascript\bootstrap.js.map" />
     <Content Include="javascript\bootstrap.min.js.map" />
     <None Include="packages.config" />
-    <Content Include="HTMLPages\ClaimyFrontPage.html" />
-    <Content Include="HTMLPages\CreateAccount.html" />
-    <Content Include="HTMLPages\FrontPage.html" />
-    <Content Include="HTMLPages\loginForm1.html" />
-    <Content Include="HTMLPages\MenuBar.html" />
-    <Content Include="HTMLPages\_Layout.html" />
+    <Content Include="Views\ClaimyFrontPage.html" />
+    <Content Include="Views\CreateAccount.html" />
+    <Content Include="Views\FrontPage.html" />
+    <Content Include="Views\loginForm1.html" />
+    <Content Include="Views\MenuBar.html" />
+    <Content Include="Views\_Layout.html" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
     <None Include="Web.Debug.config">
