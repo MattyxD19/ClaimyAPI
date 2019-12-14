@@ -5,6 +5,7 @@ namespace Web_Application_for_Claimy.EF
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using Web_Application_for_Claimy.Models;
 
     public partial class tbl_Ticket_Case
     {
@@ -62,7 +63,7 @@ namespace Web_Application_for_Claimy.EF
 
         public virtual tbl_Claimy_Employee tbl_Claimy_Employee { get; set; }
 
-        //public virtual tbl_Customer tbl_Customer { get; set; }
+        public virtual CustomerEntity tbl_Customer { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_Image> tbl_Image { get; set; }

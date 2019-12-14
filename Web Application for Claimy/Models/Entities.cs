@@ -4,6 +4,7 @@ namespace Web_Application_for_Claimy.EF
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
+    using Web_Application_for_Claimy.Models;
 
     public partial class Entities : DbContext
     {
@@ -14,6 +15,7 @@ namespace Web_Application_for_Claimy.EF
 
         public virtual DbSet<tbl_Claimy_Employee> tbl_Claimy_Employee { get; set; }
         public virtual DbSet<tbl_Country_List> tbl_Country_List { get; set; }
+        public virtual DbSet<CustomerEntity> Customers { get; set; }
         public virtual DbSet<tbl_Image> tbl_Image { get; set; }
         public virtual DbSet<tbl_Parking_Company> tbl_Parking_Company { get; set; }
         public virtual DbSet<tbl_Ticket_Case> tbl_Ticket_Case { get; set; }
@@ -62,10 +64,10 @@ namespace Web_Application_for_Claimy.EF
                 .WithOptional(e => e.tbl_Country_List)
                 .HasForeignKey(e => e.fld_Country_Number);
 
-            /*modelBuilder.Entity<tbl_Country_List>()
+            modelBuilder.Entity<tbl_Country_List>()
                 .HasMany(e => e.tbl_Customer)
                 .WithOptional(e => e.tbl_Country_List)
-                .HasForeignKey(e => e.fld_Country_Number);*/
+                .HasForeignKey(e => e.fld_Country_Number);
 
             modelBuilder.Entity<tbl_Country_List>()
                 .HasMany(e => e.tbl_Parking_Company)

@@ -9,8 +9,8 @@ namespace Web_Application_for_Claimy.Models
     public class AuthenticateModel
     {
         [Required]
-        public string Email { get; set; }
+        public string fld_Email { get; set; }
         [Required]
-        public string Password { get; set; }
+        public string fld_Password { get; set; }
     }
 }

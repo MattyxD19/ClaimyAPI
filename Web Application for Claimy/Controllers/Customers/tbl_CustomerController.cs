@@ -6,12 +6,11 @@ using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 using System.Security.Claims;
 using System.Text;
-using System.Web;
+using Web_Application_for_Claimy.helper;
 using Web_Application_for_Claimy.Models;
-using WebGrease.Css.Ast;
+using Web_Application_for_Claimy.Models.Customers;
 
 namespace Web_Application_for_Claimy.Controllers.Customers
 {
@@ -20,12 +19,12 @@ namespace Web_Application_for_Claimy.Controllers.Customers
     [Route("[controller]")]
     public class tbl_CustomerController : ControllerBase
     {
-        private helper.ICustomer _customerService;
+        private ICustomer _customerService;
         private IMapper _mapper;
-        private readonly Appsettings _appSettings;
+        private readonly AppSettings _appSettings;
 
         public tbl_CustomerController(
-            helper.ICustomer _customerService,
+            ICustomer customerService,
             IMapper mapper,
             IOptions<AppSettings> appSettings)
         {
@@ -38,7 +37,7 @@ namespace Web_Application_for_Claimy.Controllers.Customers
         [HttpPost("authenticate")]
         public IActionResult Authenticate([FromBody]AuthenticateModel model)
         {
-            var customer = _customerService.Authenticate(model.Email, model.Password);
+            var customer = _customerService.Authenticate(model.fld_Email, model.fld_Password);
 
             if (customer == null)
                 return BadRequest(new { message = "Username or password is incorrect" });
@@ -49,7 +48,7 @@ namespace Web_Application_for_Claimy.Controllers.Customers
             {
                 Subject = new ClaimsIdentity(new Claim[]
                 {
-                    new Claim(ClaimTypes.Email, customer.Id_Email)
+                    new Claim(ClaimTypes.Email, customer.fld_Email)
                 }),
                 Expires = DateTime.UtcNow.AddDays(7),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
@@ -60,26 +59,26 @@ namespace Web_Application_for_Claimy.Controllers.Customers
             // return basic user info and authentication token
             return Ok(new
             {
-                Email = customer.Id_Email,
-                Name = customer.Name,
-                Adress = customer.Adress,
-                PhoneNumber = customer.PhoneNumber,
-                CountryNumber = customer.CountryNumber,
+                Email = customer.fld_Email,
+                Name = customer.fld_Name,
+                Adress = customer.fld_Adress,
+                PhoneNumber = customer.fld_Phone_No,
+                CountryNumber = customer.fld_Country_Number,
                 Token = tokenString
             });
         }
 
         [AllowAnonymous]
         [HttpPost("register")]
-        public IActionResult Register([FromBody]Models.Customers.RegisterCustomer model)
-{
-// map model to entity
+        public IActionResult Register([FromBody]RegisterCustomer model)
+        {
+            // map model to entity
             var customer = _mapper.Map<CustomerEntity>(model);
 
             try
             {
                 // create user
-                _customerService.Create(customer, model.Password);
+                _customerService.Create(customer, model.fld_Password);
                 return Ok();
             }
             catch (AppException ex)
@@ -92,8 +91,8 @@ namespace Web_Application_for_Claimy.Controllers.Customers
         [HttpGet]
         public IActionResult GetAll()
         {
-            var customer = _customerService.GetAll();
-            var model = _mapper.Map<IList<Models.Customers.CustomerModel>>(customer);
+            var customers = _customerService.GetAll();
+            var model = _mapper.Map<IList<CustomerModel>>(customer);
             return Ok(model);
         }
 
@@ -101,21 +100,21 @@ namespace Web_Application_for_Claimy.Controllers.Customers
         public IActionResult GetById(string email)
         {
             var customer = _customerService.GetByEmail(email);
-            var model = _mapper.Map<Models.Customers.CustomerModel>(customer);
+            var model = _mapper.Map<CustomerModel>(customer);
             return Ok(model);
         }
 
         [HttpPut("{id}")]
-        public IActionResult Update(string email, [FromBody]Models.Customers.CustomerUpdate model)
+        public IActionResult Update(string email, [FromBody]CustomerUpdate model)
         {
             // map model to entity and set id
             var customer = _mapper.Map<CustomerEntity>(model);
-            customer.Id_Email = email;
+            customer.fld_Email = email;
 
             try
             {
                 // update user 
-                _customerService.Update(customer, model.Password);
+                _customerService.Update(customer, model.fld_Password);
                 return Ok();
             }
             catch (AppException ex)

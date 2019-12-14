@@ -10,10 +10,10 @@ namespace Web_Application_for_Claimy.helper
     public interface ICustomer
     {
         Models.CustomerEntity Authenticate(string email, string password);
-        IEnumerable<Models.CustomerEntity> GetAll();
+        IEnumerable<CustomerEntity> GetAll();
         Models.CustomerEntity GetByEmail(string email);
-        Models.CustomerEntity Create(Models.CustomerEntity customer, string password);
-        void Update(Models.CustomerEntity customer, string password = null);
+        Models.CustomerEntity Create(CustomerEntity customer, string password);
+        void Update(CustomerEntity customer, string password = null);
         void Delete(string email);
     }
 
@@ -26,12 +26,12 @@ namespace Web_Application_for_Claimy.helper
             _context = context;
         }
 
-        public Models.CustomerEntity Authenticate(string email, string password)
+        public CustomerEntity Authenticate(string email, string password)
         {
             if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
                 return null;
 
-            var customer = _context.Customers.SingleOrDefault(x => x.Id_Email == email);
+            var customer = _context.Customers.SingleOrDefault(x => x.fld_Email == email);
 
             // check if email exists
             if (customer == null)
@@ -45,24 +45,24 @@ namespace Web_Application_for_Claimy.helper
             return customer;
         }
 
-        public IEnumerable<Models.CustomerEntity> GetAll()
+        public IEnumerable<CustomerEntity> GetAll()
         {
             return _context.Customers;
         }
 
-        public Models.CustomerEntity GetById(string email)
+        public CustomerEntity GetById(string email)
         {
             return _context.Customers.Find(email);
         }
 
-        public Models.CustomerEntity Create(Models.CustomerEntity customer, string password)
+        public CustomerEntity Create(CustomerEntity customer, string password)
         {
             // validation
             if (string.IsNullOrWhiteSpace(password))
                 throw new AppException("Password is required");
 
-            if (_context.Customers.Any(x => x.Id_Email == customer.Id_Email))
-                throw new AppException("Username \"" + customer.Id_Email + "\" is already taken");
+            if (_context.Customers.Any(x => x.fld_Email == customer.fld_Email))
+                throw new AppException("Username \"" + customer.fld_Email + "\" is already taken");
 
             byte[] passwordHash, passwordSalt;
             CreatePasswordHash(password, out passwordHash, out passwordSalt);
@@ -76,29 +76,29 @@ namespace Web_Application_for_Claimy.helper
             return customer;
         }
 
-        public void Update(Models.CustomerEntity customerParam, string password = null)
+        public void Update(CustomerEntity customerParam, string password = null)
         {
-            var customer = _context.Customers.Find(customerParam.Id_Email);
+            var customer = _context.Customers.Find(customerParam.fld_Email);
 
             if (customer == null)
                 throw new AppException("User not found");
 
             // update Name if it has changed
-            if (!string.IsNullOrWhiteSpace(customerParam.Name) && customerParam.Name != customerParam.Name)
+            if (!string.IsNullOrWhiteSpace(customerParam.fld_Name) && customerParam.fld_Name != customerParam.fld_Name)
             {
                 // throw error if the new Name is already taken
-                if (_context.Customers.Any(x => x.Name == customerParam.Name))
-                    throw new AppException("Username " + customerParam.Name + " is already taken");
+                if (_context.Customers.Any(x => x.fld_Name == customerParam.fld_Name))
+                    throw new AppException("Username " + customerParam.fld_Name + " is already taken");
 
-                customer.Name = customerParam.Name;
+                customer.fld_Name = customerParam.fld_Name;
             }
 
             // update user properties if provided
-            if (!string.IsNullOrWhiteSpace(customer.Adress))
-                customer.Adress = customerParam.Adress;
+            if (!string.IsNullOrWhiteSpace(customer.fld_Adress))
+                customer.fld_Adress = customerParam.fld_Adress;
 
-            if (!string.IsNullOrWhiteSpace(customer.PhoneNumber))
-                customer.PhoneNumber = customerParam.PhoneNumber;
+            if (!string.IsNullOrWhiteSpace(customer.fld_Phone_No))
+                customer.fld_Phone_No = customerParam.fld_Phone_No;
 
             // update password if provided
             if (!string.IsNullOrWhiteSpace(password))

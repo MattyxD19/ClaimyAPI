@@ -334,8 +334,8 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <Content Include="Appsettings.json" />
-    <Content Include="Appsettings.Development.json" />
+    <Content Include="appsettings.json" />
+    <Content Include="appsettings.Development.json" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Resources\claimyDarkBlueLogo.png" />
     <Content Include="Resources\ClaimyLogoLight.png" />
@@ -372,6 +372,8 @@
     <Compile Include="Controllers\tbl_ImageController.cs" />
     <Compile Include="Controllers\tbl_Parking_CompanyController.cs" />
     <Compile Include="Controllers\tbl_Ticket_CaseController.cs" />
+    <Compile Include="helper\AppSettings.cs" />
+    <Compile Include="helper\AutoMapperProfile.cs" />
     <Compile Include="helper\CustomerContext.cs" />
     <Compile Include="helper\ICustomer.cs" />
     <Compile Include="Models\Customers\AuthenticateModel.cs" />
