@@ -12,7 +12,7 @@ namespace Web_Application_for_Claimy.EF
         public tbl_Country_List()
         {
             tbl_Claimy_Employee = new HashSet<tbl_Claimy_Employee>();
-            tbl_Customer = new HashSet<tbl_Customer>();
+            //tbl_Customer = new HashSet<tbl_Customer>();
             tbl_Parking_Company = new HashSet<tbl_Parking_Company>();
         }
 
@@ -32,7 +32,7 @@ namespace Web_Application_for_Claimy.EF
         public virtual ICollection<tbl_Claimy_Employee> tbl_Claimy_Employee { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tbl_Customer> tbl_Customer { get; set; }
+        //public virtual ICollection<tbl_Customer> tbl_Customer { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_Parking_Company> tbl_Parking_Company { get; set; }

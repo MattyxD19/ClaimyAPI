@@ -83,22 +83,32 @@
     <script>
         document.getElementById("Login").onclick = function($) {
 
-            var fld_Email = document.getElementById("InputUsername");
-            var fld_Password = document.getElementById("InputPassword");
+            var Email = document.getElementById("InputUsername");
+            var Password = document.getElementById("InputPassword");
 
-            var url = "https://localhost:44324/api/tbl_Customer?" + fld_Email;
+            var url = "https://localhost:44324/api/tbl_Customer?" + Email;
 
             var xmlhttp = new XMLHttpRequest();
 
             xmlhttp.onreadystatechange = function() {
-              if (this.readyState == 4 && this.status == 200) {
-                  var myArr = JSON.parse(this.responseText);
-                  console.log(myArr);
+                if (this.readyState == 4 && this.status == 200) {
+                    var data = JSON.parse(this.responseText);
+                    
+                    console.log(data);
+
+                    for (var i = 0, l = data.length; i < l; i++) {
+                        var obj = data[i];
+                        console.log(obj.fld_Password);
+                        
+                    }
+
+
               }
             };
             xmlhttp.open("GET", url, true);
             xmlhttp.send(); 
 
+            
             
 
         };

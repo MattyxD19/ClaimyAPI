@@ -14,7 +14,6 @@ namespace Web_Application_for_Claimy.EF
 
         public virtual DbSet<tbl_Claimy_Employee> tbl_Claimy_Employee { get; set; }
         public virtual DbSet<tbl_Country_List> tbl_Country_List { get; set; }
-        public virtual DbSet<tbl_Customer> tbl_Customer { get; set; }
         public virtual DbSet<tbl_Image> tbl_Image { get; set; }
         public virtual DbSet<tbl_Parking_Company> tbl_Parking_Company { get; set; }
         public virtual DbSet<tbl_Ticket_Case> tbl_Ticket_Case { get; set; }
@@ -63,40 +62,15 @@ namespace Web_Application_for_Claimy.EF
                 .WithOptional(e => e.tbl_Country_List)
                 .HasForeignKey(e => e.fld_Country_Number);
 
-            modelBuilder.Entity<tbl_Country_List>()
+            /*modelBuilder.Entity<tbl_Country_List>()
                 .HasMany(e => e.tbl_Customer)
                 .WithOptional(e => e.tbl_Country_List)
-                .HasForeignKey(e => e.fld_Country_Number);
+                .HasForeignKey(e => e.fld_Country_Number);*/
 
             modelBuilder.Entity<tbl_Country_List>()
                 .HasMany(e => e.tbl_Parking_Company)
                 .WithOptional(e => e.tbl_Country_List)
                 .HasForeignKey(e => e.fld_Country_Number);
-
-            modelBuilder.Entity<tbl_Customer>()
-                .Property(e => e.fld_Email)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<tbl_Customer>()
-                .Property(e => e.fld_Name)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<tbl_Customer>()
-                .Property(e => e.fld_Adress)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<tbl_Customer>()
-                .Property(e => e.fld_Phone_No)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<tbl_Customer>()
-                .Property(e => e.fld_Password)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<tbl_Customer>()
-                .HasMany(e => e.tbl_Ticket_Case)
-                .WithOptional(e => e.tbl_Customer)
-                .HasForeignKey(e => e.fld_Customer_Email);
 
             modelBuilder.Entity<tbl_Image>()
                 .Property(e => e.fld_Ticket_ID)
