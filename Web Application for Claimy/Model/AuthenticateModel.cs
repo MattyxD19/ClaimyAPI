@@ -4,13 +4,14 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace Web_Application_for_Claimy.Models
+namespace Web_Application_for_Claimy.Model
 {
     public class AuthenticateModel
     {
         [Required]
-        public string fld_Email { get; set; }
+        public string Email { get; set; }
         [Required]
-        public string fld_Password { get; set; }
+        public string Password { get; set; }
+
     }
 }

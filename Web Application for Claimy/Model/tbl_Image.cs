@@ -1,4 +1,4 @@
-namespace Web_Application_for_Claimy.EF
+namespace Web_Application_for_Claimy.Model
 {
     using System;
     using System.Collections.Generic;

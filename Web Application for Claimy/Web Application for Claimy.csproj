@@ -334,8 +334,6 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <Content Include="appsettings.json" />
-    <Content Include="appsettings.Development.json" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Resources\claimyDarkBlueLogo.png" />
     <Content Include="Resources\ClaimyLogoLight.png" />
@@ -361,35 +359,28 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppException.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\Customers\tbl_CustomerController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\tbl_Claimy_EmployeeController.cs" />
     <Compile Include="Controllers\tbl_Country_ListController.cs" />
+    <Compile Include="Controllers\tbl_CustomerController.cs" />
     <Compile Include="Controllers\tbl_ImageController.cs" />
     <Compile Include="Controllers\tbl_Parking_CompanyController.cs" />
     <Compile Include="Controllers\tbl_Ticket_CaseController.cs" />
-    <Compile Include="helper\AppSettings.cs" />
-    <Compile Include="helper\AutoMapperProfile.cs" />
-    <Compile Include="helper\CustomerContext.cs" />
-    <Compile Include="helper\ICustomer.cs" />
-    <Compile Include="Models\Customers\AuthenticateModel.cs" />
-    <Compile Include="Models\Customers\CustomerEntity.cs" />
-    <Compile Include="Models\Customers\CustomerModel.cs" />
-    <Compile Include="Models\Customers\CustomerUpdate.cs" />
-    <Compile Include="Models\Customers\RegisterCustomer.cs" />
-    <Compile Include="Models\Entities.cs" />
-    <Compile Include="Models\tbl_Claimy_Employee.cs" />
-    <Compile Include="Models\tbl_Country_List.cs" />
-    <Compile Include="Models\tbl_Image.cs" />
-    <Compile Include="Models\tbl_Parking_Company.cs" />
-    <Compile Include="Models\tbl_Ticket_Case.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Model\AuthenticateModel.cs" />
+    <Compile Include="Model\ClaimyModel.cs" />
+    <Compile Include="Model\tbl_Claimy_Employee.cs" />
+    <Compile Include="Model\tbl_Country_List.cs" />
+    <Compile Include="Model\tbl_Customer.cs" />
+    <Compile Include="Model\tbl_Image.cs" />
+    <Compile Include="Model\tbl_Parking_Company.cs" />
+    <Compile Include="Model\tbl_Ticket_Case.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

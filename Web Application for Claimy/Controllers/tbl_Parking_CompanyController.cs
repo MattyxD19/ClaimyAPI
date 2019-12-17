@@ -9,13 +9,13 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
-using Web_Application_for_Claimy.EF;
+using Web_Application_for_Claimy.Model;
 
 namespace Web_Application_for_Claimy.Controllers
 {
     public class tbl_Parking_CompanyController : ApiController
     {
-        private Entities db = new Entities();
+        private ClaimyModel db = new ClaimyModel();
 
         // GET: api/tbl_Parking_Company
         public IQueryable<tbl_Parking_Company> Gettbl_Parking_Company()

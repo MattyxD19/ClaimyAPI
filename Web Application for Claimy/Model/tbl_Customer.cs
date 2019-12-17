@@ -1,12 +1,15 @@
-namespace Web_Application_for_Claimy.EF
+namespace Web_Application_for_Claimy.Model
 {
+    using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
 
-    public partial class tbl_Claimy_Employee
+    public partial class tbl_Customer
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public tbl_Claimy_Employee()
+        public tbl_Customer()
         {
             tbl_Ticket_Case = new HashSet<tbl_Ticket_Case>();
         }
@@ -24,7 +27,7 @@ namespace Web_Application_for_Claimy.EF
         [StringLength(15)]
         public string fld_Phone_No { get; set; }
 
-        [StringLength(25)]
+        [MaxLength(50)]
         public string fld_Password { get; set; }
 
         public int? fld_Country_Number { get; set; }

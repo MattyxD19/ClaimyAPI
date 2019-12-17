@@ -1,21 +1,20 @@
-namespace Web_Application_for_Claimy.EF
+namespace Web_Application_for_Claimy.Model
 {
     using System;
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
-    using Web_Application_for_Claimy.Models;
 
-    public partial class Entities : DbContext
+    public partial class ClaimyModel : DbContext
     {
-        public Entities()
-            : base("name=Entities")
+        public ClaimyModel()
+            : base("name=ClaimyModel")
         {
         }
 
         public virtual DbSet<tbl_Claimy_Employee> tbl_Claimy_Employee { get; set; }
         public virtual DbSet<tbl_Country_List> tbl_Country_List { get; set; }
-        public virtual DbSet<CustomerEntity> Customers { get; set; }
+        public virtual DbSet<tbl_Customer> tbl_Customer { get; set; }
         public virtual DbSet<tbl_Image> tbl_Image { get; set; }
         public virtual DbSet<tbl_Parking_Company> tbl_Parking_Company { get; set; }
         public virtual DbSet<tbl_Ticket_Case> tbl_Ticket_Case { get; set; }
@@ -74,6 +73,27 @@ namespace Web_Application_for_Claimy.EF
                 .WithOptional(e => e.tbl_Country_List)
                 .HasForeignKey(e => e.fld_Country_Number);
 
+            modelBuilder.Entity<tbl_Customer>()
+                .Property(e => e.fld_Email)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<tbl_Customer>()
+                .Property(e => e.fld_Name)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<tbl_Customer>()
+                .Property(e => e.fld_Adress)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<tbl_Customer>()
+                .Property(e => e.fld_Phone_No)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<tbl_Customer>()
+                .HasMany(e => e.tbl_Ticket_Case)
+                .WithOptional(e => e.tbl_Customer)
+                .HasForeignKey(e => e.fld_Customer_Email);
+
             modelBuilder.Entity<tbl_Image>()
                 .Property(e => e.fld_Ticket_ID)
                 .IsUnicode(false);
@@ -129,6 +149,10 @@ namespace Web_Application_for_Claimy.EF
 
             modelBuilder.Entity<tbl_Ticket_Case>()
                 .Property(e => e.fld_tax_number)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<tbl_Ticket_Case>()
+                .Property(e => e.fld_date_time)
                 .IsUnicode(false);
 
             modelBuilder.Entity<tbl_Ticket_Case>()

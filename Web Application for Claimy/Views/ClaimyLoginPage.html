@@ -83,33 +83,32 @@
     <script>
         document.getElementById("Login").onclick = function($) {
 
-            var Email = document.getElementById("InputUsername");
-            var Password = document.getElementById("InputPassword");
+            var CustEmail = document.getElementById("InputUsername").value;
+            var CustPassword = document.getElementById("InputPassword").value;
 
-            var url = "https://localhost:44324/api/tbl_Customer?" + Email;
+            var authenticate = new Object();
+            authenticate.Email = CustEmail;
+            authenticate.Password = CustPassword;
 
-            var xmlhttp = new XMLHttpRequest();
+            var data = JSON.stringify(authenticate);
 
-            xmlhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    var data = JSON.parse(this.responseText);
-                    
-                    console.log(data);
+            xhr = new XMLHttpRequest();
+            var url = "https://localhost:44324/api/Login";
+            xhr.open("POST", url, true);
 
-                    for (var i = 0, l = data.length; i < l; i++) {
-                        var obj = data[i];
-                        console.log(obj.fld_Password);
-                        
-                    }
-
-
-              }
-            };
-            xmlhttp.open("GET", url, true);
-            xmlhttp.send(); 
-
-            
-            
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.onreadystatechange = function () { 
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                var json = JSON.parse(xhr.responseText);
+                console.log(json)
+                localStorage.setItem("CustomerList", JSON.stringify(data))
+                console.log(localStorage.getItem("CustomerList"));
+                window.location.href = "https://localhost:44324/Views/CustomerPage.html";
+                }
+            }
+            console.log(JSON.stringify(authenticate))
+           
+            xhr.send(data);
 
         };
         
