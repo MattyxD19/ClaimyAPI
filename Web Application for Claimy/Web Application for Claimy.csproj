@@ -355,6 +355,11 @@
     <Content Include="bin\Web Application for Claimy.dll" />
     <Content Include="bin\Web Application for Claimy.dll.config" />
     <Content Include="bin\Web Application for Claimy.pdb" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Site.css" />
     <Content Include="CSS\bootstrap-grid.css" />
     <Content Include="CSS\bootstrap-grid.min.css" />
     <Content Include="CSS\bootstrap-reboot.css" />
