@@ -23,27 +23,22 @@
     </nav>
 
     <div class="jumbotron vertical-center">
-        <div class="container rounded" style="height: 300px; width:250px;">
+        <div class="container rounded" style="height: 300px; width:300px;">
             <div class="row justify-content-center">
                 <label class="loginLabel" for="uname"><b>Brugernavn</b></label>
             </div>
             <div class="row justify-content-center">
-                <input type="text" class="loginTextfields" placeholder="Indtast Brugernavn" name="uname" required>
+                <input type="text" class="loginTextfields" placeholder="Indtast Brugernavn" name="uname" id="InputUsername">
             </div>
             <div class="row justify-content-center">
                 <label class="loginLabel" for="psw"><b>Adgangskode</b></label>
             </div>
             <div class="row justify-content-center">
-                <input class="loginTextfields" type="password" placeholder="Indtast Adgangskode" name="psw" required>
+                <input class="loginTextfields" type="password" placeholder="Indtast Adgangskode" name="psw" id="InputPassword">
             </div>
             <div class="row justify-content-center">
-                <button type="submit" class="loginbtn">Login</button>
+                <button type="submit" id="Submit" class="loginbtn">Login</button>
                 <button type="button" class="cancelbtn">Annuller</button>
-            </div>
-
-            <div class="row  justify-content-center">
-                <button type="submit" id="Login" class="loginbtn btn-info rounded-sm" style="background-color: cornflowerblue; border-color: dimgray">Login</button>
-                <button type="button" id="Cancel" class="cancelbtn btn-info rounded-sm" style="background-color: cornflowerblue; border-color: dimgray">Cancel</button>
             </div>
             <div class="row justify-content-center">
                 <label>
@@ -78,7 +73,7 @@
 
     <!--Scripts-->
     <script>
-        document.getElementById("Login").onclick = function($) {
+        document.getElementById("Submit").onclick = function($) {
 
             var CustEmail = document.getElementById("InputUsername").value;
             var CustPassword = document.getElementById("InputPassword").value;
