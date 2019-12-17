@@ -106,7 +106,6 @@
                     <a href="https://www.facebook.com/Claimy-112382550242297/" title="Følg os på Facebook">
                         <i class="fa fa-facebook" style="font-size:36px"></i>
                     </a>
-
                 </li>
             </ul>
             <ul class="list-group col-8 offset-2 container-fluid ">
@@ -122,7 +121,7 @@
     <!--Retrieving data from input fields and create a JSON String-->
     <!--not functional yet-->
     <script>
-        document.getElementById("CompleteAccount").onclick = function () {
+        document.getElementById("CompleteAccount").onclick = function($) {
 
             var email = document.getElementById('InputEmail').value;
             var password = document.getElementById('InputPassword').value;
@@ -130,28 +129,36 @@
             var adress = document.getElementById('InputAdress').value;
             var zipcode = document.getElementById('InputZipcode').value;
             var phonenumber = document.getElementById('InputPhone').value;
-            var country = document.getElementById('InputCountry').value;
-
-            window.alert(name);
-            console.log(email);
-            console.log(name);
+            //var country = document.getElementById('InputCountry').value;
 
             var accountObj = new Object();
 
-            accountObj.name = name;
-            accountObj.adress = adress;
-            accountObj.email = email;
-            accountObj.phonenumber = phonenumber;
-            accountObj.password = password;
-            accountObj.country = country;
-            accountObj.zipcode = zipcode;
+            accountObj.fld_Email = email;
+            accountObj.fld_Name = name;
+            accountObj.fld_Adress = adress;
+            accountObj.fld_Phone_No = phonenumber;
+            accountObj.fld_Password = password;
+            accountObj.fld_Country_Number = 1; //should be "1" since the database only accepts integers and "Denmark" is the only available country
+            
+
+            xhr = new XMLHttpRequest();
+            var url = "https://localhost:44324/api/tbl_Customer";
+            xhr.open("POST", url, true);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.onreadystatechange = function () { 
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                var json = JSON.parse(xhr.responseText);
+                window.alert("User created succesfully");
+                }
+            }
+
+            var data = JSON.stringify(accountObj);
+            xhr.send(data);
+
             console.log(JSON.stringify(accountObj));
 
         }
-
-
     </script>
-
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

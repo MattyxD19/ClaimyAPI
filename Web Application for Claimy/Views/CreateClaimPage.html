@@ -8,7 +8,6 @@
 
     <!--icons-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 </head>
 <body>
 
@@ -24,51 +23,50 @@
         </div>
     </nav>
 
-
     <!--Table for entering information regarding ticket-->
     <div class="jumbotron vertical-center">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row align-items-center">
                 <div class="col">
                     <table class="table borderless">
                         <tbody>
                             <tr>
-                                <th scope="row"></th>
+                                <th class="row"></th>
                                 <td>
                                     <label class="createClaimLabel" style="margin-right: 25px">Navn</label>
                                     <input style="border-color:#537DA6" id="NameTextBox" />
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row"></th>
+                                <th class="row"></th>
                                 <td>
                                     <label class="createClaimLabel" style="margin-right: 25px">By</label>
                                     <input style="border-color:#537DA6" id="CityTextBox" />
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row"></th>
+                                <th class="row"></th>
                                 <td>
                                     <label class="createClaimLabel" style="margin-right: 25px">Bøde beløb</label>
                                     <input style="border-color:#537DA6" id="TicketAmountTextBox" />
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row"></th>
+                                <th class="row"></th>
                                 <td>
                                     <label class="createClaimLabel" style="margin-right: 25px">Parkeringsselskab</label>
                                     <input style="border-color:#537DA6" id="ParkingDepartmentTextBox" />
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row"></th>
+                                <th class="row"></th>
                                 <td>
                                     <label class="createClaimLabel" style="margin-right: 25px">Bøde ID</label>
                                     <input style="border-color:#537DA6" id="TicketIDTextBox" />
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row"></th>
+                                <th class="row"></th>
                                 <td>
                                     <label class="createClaimLabel" style="margin-right: 25px">Tid bøden blev udgivet</label>
                                     <input style="border-color:#537DA6" id="ToDTextBox" />
@@ -119,7 +117,6 @@
                     <a href="https://www.facebook.com/Claimy-112382550242297/" title="Følg os på Facebook">
                         <i class="fa fa-facebook" style="font-size:36px"></i>
                     </a>
-
                 </li>
             </ul>
             <ul class="list-group col-8 offset-2 container-fluid ">
@@ -130,6 +127,72 @@
             </ul>
         </div>
     </div>
+
+    <!--Writing to the database script-->
+    <script>
+
+        
+
+        document.getElementById("SubmitButton").onclick = function($) {
+
+            var ticketObj = new Object;
+
+            var ticketID = document.getElementById("TicketIDBox").value;
+            var violation = document.getElementById("ViolationBox").value;
+            var taxNumber = document.getElementById("TaxNumberBox").value;
+            var selectedDate = document.getElementById("DateBox").value;
+            var timeOfDay = document.getElementById("TimeOfDayBox").value;
+            var carReg = document.getElementById("CarRegBox").value;
+            var parkingID = document.getElementById("parkingSpaceIDBox").value;
+            var trafficOfficerID = document.getElementById("TraficOfficerIDBox").value;
+            var parkingAmount = document.getElementById("ParkingAmountBox").value;
+            var paymentInfo = document.getElementById("PaymentInfoBox").value;
+            var carBrand = document.getElementById("CarBrandBox").value;
+            var CVR = document.getElementById("CVRNumberBox").value;
+
+            var parkingToInt = parseInt(parkingID, 8);
+            var officerToInt = parseInt(trafficOfficerID, 8);
+            
+
+            ticketObj.fld_Case_Ticket_ID = "C20-" + ticketID;
+            ticketObj.fld_ParkingFine_Reason = "ugyldigt";
+            ticketObj.fld_Precedens = "Ingen";
+            ticketObj.fld_Status = "Igangværende";
+            ticketObj.fld_Law_Violation = violation;
+            ticketObj.fld_tax_number = taxNumber;
+            ticketObj.fld_date_time = selectedDate + " " + timeOfDay;
+            ticketObj.fld_car_reg_no = carReg;
+            ticketObj.fld_parkingspace_id = parkingToInt;
+            ticketObj.fld_traffic_warden_no = officerToInt;
+            ticketObj.fld_amount = parkingAmount;
+            ticketObj.fld_payment_info = paymentInfo;
+            ticketObj.fld_car_brand = carBrand;
+            ticketObj.fld_CVRNumber = CVR;
+            ticketObj.fld_Customer_Email = "test@mail.dk";
+            ticketObj.fld_EMP_ID = "claus@mail.dk";
+
+            xhr = new XMLHttpRequest();
+            var url = "https://localhost:44324/api/tbl_Ticket_Case";
+            xhr.open("POST", url, true);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.onreadystatechange = function () { 
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                var json = JSON.parse(xhr.responseText);
+                console.log(JSON.parse(xhr.responseText));
+                window.alert("Claim created succesfully");
+                }
+              
+            }
+
+            var data = JSON.stringify(ticketObj);
+            xhr.send(data);
+
+            console.log(JSON.stringify(ticketObj));
+
+           
+
+        };
+    </script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

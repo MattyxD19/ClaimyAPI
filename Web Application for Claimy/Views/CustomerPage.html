@@ -26,18 +26,26 @@
         </div>
     </nav>
 
-    <div class="container-fluid" id="Current claims">
-
+    <div class="container-fluid offset-2" id="Information">
+        <ul>
+            <li style="list-style-type: none;">
+                <label id="Name">Navn: </label>
+            </li>
+            <li style="list-style-type: none;">
+                <label id="Adress">Adresse: </label>
+            </li>
+            <li style="list-style-type: none">
+                <label id="City">By: </label>
+            </li>
+        </ul>
     </div>
 
-    <div class="container-fluid" id="Information">
-        <label id="Name"></label>
-        <label id="Adress"></label>
-        <label id="City"></label>
+    <div class="container-fluid offset-2" id="CreateANewClaim">
+        <label>Opret bødeklage</label>
+        <a class="btn btn-primary" href="CreateClaimPage.html" role="button">Indsend en bødeklage</a>
     </div>
 
     <div class="container-fluid" id="Current claims"></div>
-
 
     <!--Social media footer-->
     <div class="container-fluid col-8 offset-2">
@@ -48,7 +56,6 @@
                     <a href="https://www.facebook.com/Claimy-112382550242297/" title="Følg os på Facebook">
                         <i class="fa fa-facebook" style="font-size:36px"></i>
                     </a>
-
                 </li>
             </ul>
             <ul class="list-group col-8 offset-2 container-fluid ">
@@ -60,6 +67,27 @@
         </div>
     </div>
     <!-- Optional JavaScript -->
+
+    <script>
+        window.onload = function() {
+
+            var CustomerData = JSON.parse(localStorage.getItem("CustomerList"));
+            
+            console.log(CustomerData);
+            var email = CustomerData.email;
+            console.log(email);
+
+            var xmlHttp = new XMLHttpRequest();
+            url = "https://localhost:44324/api/tbl_Customer/" + CustomerData;
+            xmlHttp.open( "GET", url, true );
+            xmlHttp.send(null);
+            console.log(JSON.stringify(xmlHttp.responseText));
+            
+
+        };  
+    </script>
+
+
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
