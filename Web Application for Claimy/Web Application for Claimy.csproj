@@ -355,6 +355,11 @@
     <Content Include="bin\Web Application for Claimy.dll" />
     <Content Include="bin\Web Application for Claimy.dll.config" />
     <Content Include="bin\Web Application for Claimy.pdb" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Site.css" />
     <Content Include="CSS\bootstrap-grid.css" />
     <Content Include="CSS\bootstrap-grid.min.css" />
     <Content Include="CSS\bootstrap-reboot.css" />
@@ -376,6 +381,11 @@
     <Content Include="Resources\ClaimyText.txt" />
     <Content Include="Resources\ClaimyTransparent2.png" />
     <Content Include="Resources\Claimy_Logo_OG.png" />
+    <Content Include="Resources\Formula.png" />
+    <Content Include="Resources\frontpagepicture.png" />
+    <Content Include="Resources\Jurist.png" />
+    <Content Include="Resources\Money.png" />
+    <Content Include="Resources\snapshot.png" />
     <Content Include="Resources\v1_Text_for_Webapp.docx" />
     <Content Include="Resources\v1_Text_for_Webapp.pdf" />
     <Content Include="Content\bootstrap.min.css.map" />
