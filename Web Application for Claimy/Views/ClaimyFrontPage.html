@@ -14,7 +14,7 @@
     <!--icons-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <title>Front Page</title>
+    <title>Velkommen til Claimy</title>
 </head>
 <body>
     <!--Navigation bar-->
@@ -24,20 +24,19 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="AboutUsPage.html" style="color:white; list-style: none; margin: 15px; ">Om os</a></li>
                 <li><a href="CreateAccount.html" style="color: white; list-style: none; margin: 15px;"><i class="fa fa-user"></i>Tilmeld dig</a></li>
-                <li><a href="loginForm1.html" style="color: white; list-style: none; margin: 15px; "><i class="fa fa-lock"></i> Login</a></li>
+                <li><a href="ClaimyLoginPage.html" style="color: white; list-style: none; margin: 15px; "><i class="fa fa-lock"></i> Login</a></li>
             </ul>
         </div>
     </nav>
 
 
-    <!-- TODO: TILFØJ FUNKTIONALITET TIL DEN SATANS KNAP VED NAVN "redirectToCreateAccountButton" NU! -->
     <!-- First thing you see when you load the page - picture with some delicious text n' buttons -->
     <div class="WelcomePage">
         <div class="container-imageStyling">
             <img src="../Resources/frontpagepicture.png" alt="Claimy Frontpage Picture" class="responsiveIMG" style="width: 100%;" />
             <div class="centeredHeadlineText">Har du fået en parkeringsbøde?</div>
             <div class="centeredText">Claimy er appen der hjælper dig med uretskafne bøder.</div>
-            <button type="button" class="redirectToCreateAccountButton">Start her</button>
+            <button onclick="window.location.href = 'CreateAccount.html';" type="button" class="redirectToCreateAccountButton">Start her</button>
         </div>
     </div>
 

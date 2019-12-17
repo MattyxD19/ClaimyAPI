@@ -212,10 +212,7 @@
     <None Include="packages.config" />
     <Content Include="Views\ClaimyFrontPage.html" />
     <Content Include="Views\CreateAccount.html" />
-    <Content Include="Views\FrontPage.html" />
-    <Content Include="Views\loginForm1.html" />
     <Content Include="Views\MenuBar.html" />
-    <Content Include="Views\_Layout.html" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
     <None Include="Web.Debug.config">

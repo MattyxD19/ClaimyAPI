@@ -1,6 +1,17 @@
 ﻿body {
+    background-image: linear-gradient(#537DA6, white);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .nav-link {
     color: lightblue;
+}
+
+.navbar, navbar-expand-lg, navbar-light, bg-light {
+    background-color: #537DA6 !important;
+}
+
+.bg-dark {
+    background-color: #537DA6 !important;
 }
