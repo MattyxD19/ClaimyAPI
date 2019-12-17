@@ -7,6 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="../CSS/NavigationBarCSS.css" />
 
     <!--icons-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -15,7 +16,7 @@
 </head>
 <body>
     <!--Navigation bar-->
-    <nav class="navbar navbar-expand navbar-light bg-dark">
+    <nav class="navbar navbar-expand navbar-light">
         <div class="nav navbar-nav">
             <a class="navbar-brand" href="ClaimyFrontPage.html"><img src="../Resources/ClaimyTransparent2.png" style="height: 50px; width: 200px;" /> </a>
             <ul class="nav navbar-nav navbar-right">
@@ -69,22 +70,22 @@
     <!-- Optional JavaScript -->
 
     <script>
-        window.onload = function() {
+        window.onload = function () {
 
             var CustomerData = JSON.parse(localStorage.getItem("CustomerList"));
-            
+
             console.log(CustomerData);
             var email = CustomerData.email;
             console.log(email);
 
             var xmlHttp = new XMLHttpRequest();
             url = "https://localhost:44324/api/tbl_Customer/" + CustomerData;
-            xmlHttp.open( "GET", url, true );
+            xmlHttp.open("GET", url, true);
             xmlHttp.send(null);
             console.log(JSON.stringify(xmlHttp.responseText));
-            
 
-        };  
+
+        };
     </script>
 
 
