@@ -29,22 +29,26 @@
 
     <div class="container-fluid offset-2" id="Information">
         <ul>
-            <li style="list-style-type: none;">
-                <label id="Name">Navn: </label>
+            <li style="list-style-type: none; margin: 25px;">
+                <label  id="NameLabel">Navn: </label>
+                <label  id="name"></label>
             </li>
-            <li style="list-style-type: none;">
-                <label id="Adress">Adresse: </label>
+            <li style="list-style-type: none; margin: 25px;">
+                <label id="AdressLabel">Adresse: </label>
+                <label id="Adress"></label>
             </li>
-            <li style="list-style-type: none">
-                <label id="City">By: </label>
+            <!--<li style="list-style-type: none; margin: 25px;">
+                <label id="CityLabel">By: </label>
+                <label id="City"></label>
+            </li>-->
+            <li style="list-style-type: none; margin: 25px;">
+                 <a class="btn btn-primary" href="CreateClaimPage.html" role="button">Indsend en bødeklage</a>
             </li>
         </ul>
     </div>
 
-    <div class="container-fluid offset-2" id="CreateANewClaim">
-        <label>Opret bødeklage</label>
-        <a class="btn btn-primary" href="CreateClaimPage.html" role="button">Indsend en bødeklage</a>
-    </div>
+
+   
 
     <div class="container-fluid" id="Current claims"></div>
 
@@ -72,17 +76,40 @@
     <script>
         window.onload = function () {
 
-            var CustomerData = JSON.parse(localStorage.getItem("CustomerList"));
+            var queryString = decodeURIComponent(window.location.search); //parsing
+            queryString = queryString.substring(1);
+            var queries = queryString.split("&");
 
-            console.log(CustomerData);
-            var email = CustomerData.email;
-            console.log(email);
+            var email = queries[0].substring(6)
+            var password = queries[1].substring(6)
+            urlCustomer = "https://localhost:44324/api/tbl_Customer?" + email;
+            
 
-            var xmlHttp = new XMLHttpRequest();
-            url = "https://localhost:44324/api/tbl_Customer/" + CustomerData;
-            xmlHttp.open("GET", url, true);
-            xmlHttp.send(null);
-            console.log(JSON.stringify(xmlHttp.responseText));
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    
+                    var data = JSON.parse(xhttp.responseText);
+                    var customerArray = data.filter(function (cust) {
+                        if (cust.fld_Email == email) {
+                           
+                            document.getElementById("name").innerHTML = cust.fld_Name;
+                            document.getElementById("Adress").innerHTML = cust.fld_Adress;
+                            
+                        };
+                        
+
+                            
+                    });
+                    
+                }
+            };
+
+
+            xhttp.open("GET", urlCustomer, true);
+            xhttp.send();
+
+            
 
 
         };

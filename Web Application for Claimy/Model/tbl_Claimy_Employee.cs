@@ -8,12 +8,6 @@ namespace Web_Application_for_Claimy.Model
 
     public partial class tbl_Claimy_Employee
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public tbl_Claimy_Employee()
-        {
-            tbl_Ticket_Case = new HashSet<tbl_Ticket_Case>();
-        }
-
         [Key]
         [StringLength(50)]
         public string fld_Email { get; set; }
@@ -33,8 +27,5 @@ namespace Web_Application_for_Claimy.Model
         public int? fld_Country_Number { get; set; }
 
         public virtual tbl_Country_List tbl_Country_List { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tbl_Ticket_Case> tbl_Ticket_Case { get; set; }
     }
 }

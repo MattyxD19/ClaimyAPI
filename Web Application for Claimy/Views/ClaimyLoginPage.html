@@ -93,10 +93,12 @@
             xhr.onreadystatechange = function () { 
             if (xhr.readyState == 4 && xhr.status == 200) {
                 var json = JSON.parse(xhr.responseText);
-                console.log(json)
-                localStorage.setItem("CustomerList", JSON.stringify(data))
-                console.log(localStorage.getItem("CustomerList"));
-                window.location.href = "https://localhost:44324/Views/CustomerPage.html";
+                console.log(json);
+                var emailVal = CustEmail;
+                var passwordVal = CustPassword;
+                var queryString = "?para1=" + emailVal + "&para2=" + passwordVal;
+
+                window.location.href = "https://localhost:44324/Views/CustomerPage.html" + queryString;
                 }
             }
             console.log(JSON.stringify(authenticate))

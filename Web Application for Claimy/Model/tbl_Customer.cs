@@ -12,6 +12,7 @@ namespace Web_Application_for_Claimy.Model
         public tbl_Customer()
         {
             tbl_Ticket_Case = new HashSet<tbl_Ticket_Case>();
+            tbl_Ticket_Case1 = new HashSet<tbl_Ticket_Case>();
         }
 
         [Key]
@@ -27,7 +28,7 @@ namespace Web_Application_for_Claimy.Model
         [StringLength(15)]
         public string fld_Phone_No { get; set; }
 
-        [MaxLength(50)]
+        [StringLength(25)]
         public string fld_Password { get; set; }
 
         public int? fld_Country_Number { get; set; }
@@ -36,5 +37,8 @@ namespace Web_Application_for_Claimy.Model
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_Ticket_Case> tbl_Ticket_Case { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbl_Ticket_Case> tbl_Ticket_Case1 { get; set; }
     }
 }

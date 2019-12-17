@@ -8,7 +8,7 @@ namespace Web_Application_for_Claimy.Model
     public partial class ClaimyModel : DbContext
     {
         public ClaimyModel()
-            : base("name=ClaimyModel")
+            : base("name=ClaimyModel1")
         {
         }
 
@@ -40,11 +40,6 @@ namespace Web_Application_for_Claimy.Model
             modelBuilder.Entity<tbl_Claimy_Employee>()
                 .Property(e => e.fld_Password)
                 .IsUnicode(false);
-
-            modelBuilder.Entity<tbl_Claimy_Employee>()
-                .HasMany(e => e.tbl_Ticket_Case)
-                .WithOptional(e => e.tbl_Claimy_Employee)
-                .HasForeignKey(e => e.fld_EMP_ID);
 
             modelBuilder.Entity<tbl_Country_List>()
                 .Property(e => e.fld_Country)
@@ -90,9 +85,19 @@ namespace Web_Application_for_Claimy.Model
                 .IsUnicode(false);
 
             modelBuilder.Entity<tbl_Customer>()
+                .Property(e => e.fld_Password)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<tbl_Customer>()
                 .HasMany(e => e.tbl_Ticket_Case)
                 .WithOptional(e => e.tbl_Customer)
                 .HasForeignKey(e => e.fld_Customer_Email);
+
+            modelBuilder.Entity<tbl_Customer>()
+                .HasMany(e => e.tbl_Ticket_Case1)
+                .WithOptional(e => e.tbl_Customer1)
+                .HasForeignKey(e => e.fld_Customer_Email)
+                .WillCascadeOnDelete();
 
             modelBuilder.Entity<tbl_Image>()
                 .Property(e => e.fld_Ticket_ID)
@@ -177,10 +182,6 @@ namespace Web_Application_for_Claimy.Model
 
             modelBuilder.Entity<tbl_Ticket_Case>()
                 .Property(e => e.fld_Customer_Email)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<tbl_Ticket_Case>()
-                .Property(e => e.fld_EMP_ID)
                 .IsUnicode(false);
 
             modelBuilder.Entity<tbl_Ticket_Case>()

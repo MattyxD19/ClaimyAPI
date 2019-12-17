@@ -383,6 +383,7 @@
     <Content Include="Resources\Claimy_Logo_OG.png" />
     <Content Include="Resources\Formula.png" />
     <Content Include="Resources\frontpagepicture.png" />
+    <Content Include="Resources\FrontPageText.txt" />
     <Content Include="Resources\Jurist.png" />
     <Content Include="Resources\Money.png" />
     <Content Include="Resources\snapshot.png" />

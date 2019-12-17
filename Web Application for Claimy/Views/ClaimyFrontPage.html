@@ -80,12 +80,12 @@
 
     <!-- How much claimy charges slide -->
     <div class="WhatClaimyChargesPage">
-        <div class="row justify-content-md-center">
+        <div class="row justify-content-center">
             <div class="col col-lg-2"></div>
             <div class="col-md-auto">
                 <div class="container container-special">
                     <div class="WhatClaimyChargesHeadline">Hvad koster det?</div>
-                    <p class="CostParagraphs">Her hos Claimy mener vi ikke at betaling er nødvendigt, hvis vi ikke kan vinde sagen for dig - derfor får du muligheden for at indsende din bøde uden det koster en krone selv i tilfælde at vore jurister kan se at sagen ikke kan vindes. Der bedes først om betaling, hvis bliver vundet og selv der kræver vi blot 33% af det fulde beløb bøden var på.</p>
+                    <div id="txt" onload="load()" style="color: white; font-size: 18px;"></div>
                 </div>
             </div>
             <div class="col col-lg-2"></div>
@@ -93,7 +93,7 @@
     </div>
 
 
-    <!-- Trust Pilot slide - PLEASE DONT USE THIS SORT OF PICTURE ON AN ACTUAL WEBSITE, USE THE REAL TRUST PILOT WIDGET. LINK TO WIDGET: https://dk.business.trustpilot.com/features/trustbox-widgets -->
+    <!-- Trust Pilot slide - PLEASE DONT USE THIS SORT OF PICTURE ON AN ACTUAL WEBSITE, USE THE REAL TRUST PILOT WIDGET. LINK TO WIDGET: https://dk.business.trustpilot.com/features/trustbox-widgets
     <div class="TrustPilotPage">
         <div class="row justify-content-md-center">
             <div class="col col-lg-2"></div>
@@ -106,7 +106,6 @@
         </div>
     </div>
     <!-- Trust Pilot Slide ends here - If you wish to replace the picture with the "real deal" trust pilot widget you can add it in between this out commented line and the one above (which includes a link for the guide). -->
-
     <!--Social media footer-->
     <div class="container-fluid col-8 offset-2">
         <div class="card-footer">
@@ -130,6 +129,22 @@
 
 
     <!-- Optional JavaScript -->
+
+    <script>
+        var txtFile = new XMLHttpRequest();
+        var allText = "file not found";
+        txtFile.onreadystatechange = function () {
+            if (txtFile.readyState === XMLHttpRequest.DONE && txtFile.status == 200) {
+                allText = txtFile.responseText;
+                allText = allText.split("\n").join("<br>");
+            }
+
+            document.getElementById('txt').innerHTML = allText;
+        }
+        txtFile.open("GET", '/Resources/FrontPageText.txt', true);
+        txtFile.send(null);
+    </script>
+
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
