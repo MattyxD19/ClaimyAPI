@@ -84,28 +84,18 @@
             var password = queries[1].substring(6)
             urlCustomer = "https://localhost:44324/api/tbl_Customer?" + email;
             
-
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
-                    
                     var data = JSON.parse(xhttp.responseText);
                     var customerArray = data.filter(function (cust) {
                         if (cust.fld_Email == email) {
-                           
                             document.getElementById("name").innerHTML = cust.fld_Name;
-                            document.getElementById("Adress").innerHTML = cust.fld_Adress;
-                            
+                            document.getElementById("Adress").innerHTML = cust.fld_Adress;  
                         };
-                        
-
-                            
-                    });
-                    
+                    }); 
                 }
             };
-
-
             xhttp.open("GET", urlCustomer, true);
             xhttp.send();
 
