@@ -35,43 +35,85 @@
                             <tr>
                                 <th class="row"></th>
                                 <td>
-                                    <label class="createClaimLabel" style="margin-right: 25px">Navn</label>
-                                    <input style="border-color:#537DA6" id="NameTextBox" />
+                                    <label class="createClaimLabel">Bøde ID</label>
+                                    <input type="text" class="input-group-prepend" id="TicketIDBox" />
                                 </td>
                             </tr>
                             <tr>
                                 <th class="row"></th>
                                 <td>
-                                    <label class="createClaimLabel" style="margin-right: 25px">By</label>
-                                    <input style="border-color:#537DA6" id="CityTextBox" />
+                                    <label class="createClaimLabel">Overtrædelse</label>
+                                    <input type="text" class="input-group-prepend" id="ViolationBox" />
                                 </td>
                             </tr>
                             <tr>
                                 <th class="row"></th>
                                 <td>
-                                    <label class="createClaimLabel" style="margin-right: 25px">Bøde beløb</label>
-                                    <input style="border-color:#537DA6" id="TicketAmountTextBox" />
+                                    <label class="createClaimLabel">Skattenummer</label>
+                                    <input type="text" class="input-group-prepend" id="TaxNumberBox" />
                                 </td>
                             </tr>
                             <tr>
                                 <th class="row"></th>
                                 <td>
-                                    <label class="createClaimLabel" style="margin-right: 25px">Parkeringsselskab</label>
-                                    <input style="border-color:#537DA6" id="ParkingDepartmentTextBox" />
+                                    <label class="createClaimLabel">Dato</label>
+                                    <input type="date" class="input-group-prepend" id="DateBox" />
                                 </td>
                             </tr>
                             <tr>
                                 <th class="row"></th>
                                 <td>
-                                    <label class="createClaimLabel" style="margin-right: 25px">Bøde ID</label>
-                                    <input style="border-color:#537DA6" id="TicketIDTextBox" />
+                                    <label class="createClaimLabel">Tidspunkt</label>
+                                    <input type="time" class="input-group-prepend" id="TimeOfDayBox" />
                                 </td>
                             </tr>
                             <tr>
                                 <th class="row"></th>
                                 <td>
-                                    <label class="createClaimLabel" style="margin-right: 25px">Tid bøden blev udgivet</label>
-                                    <input style="border-color:#537DA6" id="ToDTextBox" />
+                                    <label class="createClaimLabel">Registreringsnummer (bil)</label>
+                                    <input type="text" class="input-group-prepend" id="CarRegBox" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="row"></th>
+                                <td>
+                                    <label class="createClaimLabel">Parkeringsplads-ID</label>
+                                    <input type="" class="input-group-prepend" id="parkingSpaceIDBox" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="row"></th>
+                                <td>
+                                    <label class="createClaimLabel">Parkeringsvagt-nummer</label>
+                                    <input type="text" class="input-group-prepend" id="TraficOfficerIDBox" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="row"></th>
+                                <td>
+                                    <label class="createClaimLabel">Parkeringsafgift</label>
+                                    <input type="text" class="input-group-prepend" id="ParkingAmountBox" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="row"></th>
+                                <td>
+                                    <label class="createClaimLabel">Kontonummer</label>
+                                    <input type="text" class="input-group-prepend" id="PaymentInfoBox" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="row"></th>
+                                <td>
+                                    <label class="createClaimLabel">Bilmærke</label>
+                                    <input type="text" class="input-group-prepend" id="CarBrandBox" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="row"></th>
+                                <td>
+                                    <label class="createClaimLabel">CVR-Nummer</label>
+                                    <input type="text" class="input-group-prepend" id="CVRNumberBox" />
                                 </td>
                             </tr>
                         </tbody>
@@ -80,21 +122,21 @@
                 <!--For uploading images of ticket and car-->
                 <div class="col">
                     <div class="row top-buffer">
-                        <h3>Upload et billede af bøden</h3>
+                        <h3>Upload et billede af din bøde</h3>
                     </div>
                     <div class="row">
                         <form action="/action_page.php">
                             <input type="file" name="ticketPicture" accept="image/*">
-                            <input type="submit">
+                            <button type="submit" class="submitButton" style="height: 35px;">OK</button>
                         </form>
                     </div>
                     <div class="row top-buffer">
-                        <h3>Upload et billede af bøden(optional)</h3>
+                        <h3>Upload et billede af din parkeringsplads (ikke påkrævet)</h3>
                     </div>
                     <div class="row">
                         <form action="/action_page.php">
                             <input type="file" name="parkingPicture" accept="image/*" />
-                            <input type="submit" />
+                            <button type="submit" class="submitButton" style="height: 35px;">OK</button>
                         </form>
                     </div>
                 </div>
@@ -103,7 +145,7 @@
             <div class="row top-buffer">
                 <div class="col">
                     <div class="text-center">
-                        <button type="submit" class="submitButton">Indsend</button>
+                        <button type="submit" class="submitButton" id="SubmitButton">Angiv klage</button>
                     </div>
                 </div>
             </div>
@@ -132,7 +174,7 @@
 
     <!--Writing to the database script-->
     <script>
-        document.getElementById("SubmitButton").onclick = function($) {
+        document.getElementById("SubmitButton").onclick = function ($) {
 
             var ticketObj = new Object;
 
@@ -151,7 +193,7 @@
 
             var parkingToInt = parseInt(parkingID, 8);
             var officerToInt = parseInt(trafficOfficerID, 8);
-            
+
 
             ticketObj.fld_Case_Ticket_ID = "C20-" + ticketID;
             ticketObj.fld_ParkingFine_Reason = "ugyldigt";
@@ -174,13 +216,13 @@
             var url = "https://localhost:44324/api/tbl_Ticket_Case";
             xhr.open("POST", url, true);
             xhr.setRequestHeader("Content-type", "application/json");
-            xhr.onreadystatechange = function () { 
-            if (xhr.readyState == 4 && xhr.status == 200) {
-                var json = JSON.parse(xhr.responseText);
-                console.log(JSON.parse(xhr.responseText));
-                window.alert("Claim created succesfully");
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var json = JSON.parse(xhr.responseText);
+                    console.log(JSON.parse(xhr.responseText));
+                    window.alert("Claim created succesfully");
                 }
-              
+
             }
 
             var data = JSON.stringify(ticketObj);
